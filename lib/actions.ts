@@ -1,0 +1,117 @@
+"use server"
+
+import { createClient } from "@/lib/supabase/server"
+import { revalidatePath } from "next/cache"
+import { redirect } from "next/navigation"
+
+/**
+ * Sign in with email + password. The server-side Supabase client
+ * (cookie-based) handles the session cookie transparently.
+ */
+export async function signIn(_prevState: any, formData: FormData) {
+  if (!formData) {
+    return { error: "Form data is missing" }
+  }
+
+  const email = formData.get("email")
+  const password = formData.get("password")
+
+  if (!email || !password) {
+    return { error: "Email and password are required" }
+  }
+
+  try {
+    const supabase = await createClient()
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email.toString(),
+      password: password.toString(),
+    })
+
+    if (error) {
+      return { error: error.message }
+    }
+
+    if (data.user && !data.user.email_confirmed_at) {
+      // Email not verified — sign them back out so the middleware can
+      // redirect them to the verify-email page on the next request.
+      await supabase.auth.signOut()
+      return {
+        error:
+          "Please verify your email before signing in. Check your inbox for the verification link.",
+      }
+    }
+
+    return { success: true }
+  } catch (error) {
+    console.error("Login error:", error)
+    return { error: "An unexpected error occurred. Please try again." }
+  }
+}
+
+/**
+ * Sign up with email + password. Email verification is required before
+ * the user can access the dashboard.
+ */
+export async function signUp(_prevState: any, formData: FormData) {
+  if (!formData) {
+    return { error: "Form data is missing" }
+  }
+
+  const email = formData.get("email")
+  const password = formData.get("password")
+
+  if (!email || !password) {
+    return { error: "Email and password are required" }
+  }
+
+  try {
+    const supabase = await createClient()
+    const { error } = await supabase.auth.signUp({
+      email: email.toString(),
+      password: password.toString(),
+      options: {
+        emailRedirectTo: `${process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")}/auth/callback?next=%2Fdashboard`,
+      },
+    })
+
+    if (error) {
+      const message = error.message.toLowerCase()
+      if (message.includes("already registered") || message.includes("already exists")) {
+        return { error: "An account with that email already exists. Try signing in instead." }
+      }
+      if (message.includes("database error") || message.includes("saving new user")) {
+        return { error: "Sign-up is temporarily blocked by the database setup. Please run supabase-setup/00-signup-bootstrap.sql in Supabase SQL Editor." }
+      }
+      if (message.includes("rate limit") || message.includes("over_email_send_rate_limit") || (message.includes("email") && message.includes("rate"))) {
+        return {
+          error: "Too many confirmation emails were requested. Please wait a while before trying again, then check your inbox and spam folder.",
+        }
+      }
+      if (message.includes("email_address_not_authorized")) {
+        return {
+          error: "This Supabase project is currently limiting confirmation emails to approved addresses. Please use an approved test address or ask the deployment owner to configure email delivery.",
+        }
+      }
+      return { error: error.message }
+    }
+
+    return {
+      success: true,
+      message: "Check your email. Once you confirm, we’ll take you straight into your dashboard.",
+    }
+  } catch (error) {
+    console.error("Sign up error:", error)
+    return { error: "An unexpected error occurred. Please try again." }
+  }
+}
+
+export async function signOut() {
+  try {
+    const supabase = await createClient()
+    await supabase.auth.signOut()
+  } catch (error) {
+    console.error("Sign out error:", error)
+  }
+  redirect("/auth/login")
+}

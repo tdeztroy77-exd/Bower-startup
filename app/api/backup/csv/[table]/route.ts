@@ -1,0 +1,41 @@
+import { NextResponse, type NextRequest } from "next/server"
+import { withAuth } from "@/lib/api"
+import { exportBackup, assertAllowedBackupTable, BackupValidationError } from "@/lib/backup"
+import { BACKUP_TABLES, toCSV, formatSize } from "@/lib/system"
+
+export const runtime = "nodejs"
+
+/**
+ * GET /api/backup/csv/[table]
+ * Export one table as CSV. The CSV is downloaded as `bower-{table}-{date}.csv`.
+ */
+export const GET = withAuth(async (_request, { userId, supabase }, { table }) => {
+  // The table name is an SQL identifier — it must be allowlisted before it
+  // reaches the export. Both checks are kept: the allowlist is the security
+  // control, the explicit list is what tells the user which tables exist.
+  try {
+    assertAllowedBackupTable(table)
+  } catch (err) {
+    if (err instanceof BackupValidationError) {
+      return NextResponse.json({ error: err.message, allowed: BACKUP_TABLES }, { status: 400 })
+    }
+    throw err
+  }
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+  const payload = await exportBackup(userId, user?.email, { tables: [table] })
+  const rows = payload.data[table] ?? []
+  const csv = toCSV(rows)
+  const today = new Date().toISOString().slice(0, 10)
+  return new NextResponse(csv, {
+    status: 200,
+    headers: {
+      "Content-Type": "text/csv; charset=utf-8",
+      "Content-Disposition": `attachment; filename="bower-${table}-${today}.csv"`,
+      "X-Row-Count": String(rows.length),
+      "X-Size-Bytes": String(new TextEncoder().encode(csv).length),
+      "X-Size-Human": formatSize(new TextEncoder().encode(csv).length),
+    },
+  })
+})

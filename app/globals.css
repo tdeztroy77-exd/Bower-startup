@@ -1,0 +1,422 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Bower — design tokens.
+ *
+ * The palette is built around one confident signal colour (emerald) on a
+ * near-white canvas, with cool mineral neutrals. Emerald is reserved for
+ * money-positive states, primary actions and the active navigation item;
+ * destructive red and amber are used sparingly so a screen full of cards
+ * still reads calmly. Every surface is white, every border is a hairline,
+ * and depth comes from a single soft shadow — not from heavy chrome.
+ */
+:root {
+  --background: #f7f4ec;
+  --foreground: #151b17;
+
+  --card: #ffffff;
+  --card-foreground: #151b17;
+
+  --popover: #ffffff;
+  --popover-foreground: #151b17;
+
+  /* Bower forest: actions, money-positive states, active navigation. */
+  --primary: #17624a;
+  --primary-foreground: #fdfbf5;
+
+  /* Sage surface for icon tiles and selected states. */
+  --secondary: #e9f0e9;
+  --secondary-foreground: #1c4a39;
+
+  --muted: #efebe1;
+  --muted-foreground: #69736c;
+
+  /* Clay: the one warm accent, used sparingly. */
+  --accent: #f2e6d7;
+  --accent-foreground: #6d4327;
+
+  --destructive: #b0443b;
+  --destructive-foreground: #ffffff;
+
+  --success: #2c7a57;
+  --success-foreground: #ffffff;
+
+  --warning: #a86a1d;
+  --warning-foreground: #ffffff;
+
+  --info: #3f6e8c;
+  --info-foreground: #ffffff;
+
+  --clay: #b5764a;
+
+  --border: #e2dccf;
+  --input: #ffffff;
+  --ring: #17624a;
+
+  --chart-1: #17624a;
+  --chart-2: #d9a36a;
+  --chart-3: #7c9a8a;
+  --chart-4: #c08552;
+  --chart-5: #8b5e4a;
+
+  --radius: 0.75rem;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #4e5a52;
+  --sidebar-primary: #17624a;
+  --sidebar-primary-foreground: #fdfbf5;
+  --sidebar-accent: #e9f0e9;
+  --sidebar-accent-foreground: #1c4a39;
+  --sidebar-border: #ece7db;
+  --sidebar-ring: #17624a;
+
+  --shadow-card: 0 1px 2px rgba(28, 35, 29, 0.04), 0 8px 24px -20px rgba(28, 35, 29, 0.24);
+  --shadow-lift: 0 2px 4px rgba(28, 35, 29, 0.05), 0 18px 40px -28px rgba(28, 35, 29, 0.38);
+}
+
+.dark {
+  --background: #101512;
+  --foreground: #edf1ea;
+
+  --card: #171d18;
+  --card-foreground: #edf1ea;
+
+  --popover: #171d18;
+  --popover-foreground: #edf1ea;
+
+  --primary: #7fc3a4;
+  --primary-foreground: #0b2a1e;
+
+  --secondary: #1c2a22;
+  --secondary-foreground: #cbe4d5;
+
+  --muted: #1c241e;
+  --muted-foreground: #a2aea5;
+
+  --accent: #2a231b;
+  --accent-foreground: #ead7c0;
+
+  --destructive: #e07a70;
+  --destructive-foreground: #2a0b08;
+
+  --success: #63c79b;
+  --success-foreground: #05231b;
+
+  --warning: #e0b36a;
+  --warning-foreground: #2a1d00;
+
+  --info: #86aec7;
+  --info-foreground: #071433;
+
+  --clay: #d9a36a;
+
+  --border: #2a332c;
+  --input: #16201a;
+  --ring: #7fc3a4;
+
+  --chart-1: #7fc3a4;
+  --chart-2: #d9a36a;
+  --chart-3: #9db8ab;
+  --chart-4: #c08552;
+  --chart-5: #d99a82;
+
+  --sidebar: #131a15;
+  --sidebar-foreground: #b9c9c0;
+  --sidebar-primary: #7fc3a4;
+  --sidebar-primary-foreground: #0b2a1e;
+  --sidebar-accent: #1c2a22;
+  --sidebar-accent-foreground: #cbe4d5;
+  --sidebar-border: #243028;
+  --sidebar-ring: #7fc3a4;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-lift: 0 18px 40px -28px rgba(0, 0, 0, 0.8);
+}
+
+@theme inline {
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-bower-display), ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", "Segoe UI Mono", Menlo, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-clay: var(--clay);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: calc(var(--radius) - 2px);
+  --radius-xl: var(--radius);
+  --radius-2xl: calc(var(--radius) + 6px);
+  --radius-3xl: calc(var(--radius) + 14px);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-balance tracking-[-0.02em];
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--primary) 22%, transparent);
+    color: var(--foreground);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--foreground) 16%, transparent);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--foreground) 28%, transparent);
+    background-clip: padding-box;
+    border: 3px solid transparent;
+  }
+
+  /* One consistent field treatment everywhere. */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="date"],
+  input[type="time"],
+  input[type="search"],
+  textarea,
+  select {
+    @apply bg-input text-foreground placeholder:text-muted-foreground/70;
+  }
+
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply ring-2 ring-ring/40 ring-offset-1 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Marketing page gutter — one measure across every public page. */
+  .container-x {
+    @apply mx-auto w-full max-w-[1180px] px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Workspace surface: the off-white canvas behind dashboard cards. */
+  .workspace-surface {
+    background:
+      radial-gradient(70rem 30rem at 105% -10%, color-mix(in srgb, var(--primary) 6%, transparent), transparent 60%),
+      var(--background);
+  }
+
+  .card-surface {
+    @apply rounded-2xl border bg-card;
+    box-shadow: var(--shadow-card);
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground;
+  }
+
+  .pd-table {
+    @apply w-full border-collapse text-sm;
+  }
+  .pd-table thead th {
+    @apply whitespace-nowrap px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-foreground;
+    background: color-mix(in srgb, var(--muted) 55%, transparent);
+  }
+  .pd-table tbody td {
+    @apply px-4 py-3.5 align-middle;
+  }
+  .pd-table tbody tr + tr td {
+    border-top: 1px solid var(--border);
+  }
+  .pd-table tbody tr {
+    transition: background-color 140ms ease;
+  }
+  .pd-table tbody tr:hover {
+    background: color-mix(in srgb, var(--muted) 45%, transparent);
+  }
+
+  /* Public site hairline grid used behind hero copy. */
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--foreground) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--foreground) 5%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 78%);
+  }
+
+  .dotted-grid {
+    background-image: radial-gradient(color-mix(in srgb, var(--foreground) 12%, transparent) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+}
+
+@layer utilities {
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-lift {
+    box-shadow: var(--shadow-lift);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .animate-rise {
+    animation: rise 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------------
+ * Bower marketing voice
+ * The workspace stays sans and compact; the public site gets a display
+ * serif so the brand reads editorial rather than "dashboard".
+ * ------------------------------------------------------------------ */
+.bower-marketing h1,
+.bower-marketing h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+@keyframes bower-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bower-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.bower-rise {
+  animation: bower-rise 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.bower-fade {
+  animation: bower-fade 0.7s ease both;
+}
+
+.bower-delay-1 { animation-delay: 0.08s; }
+.bower-delay-2 { animation-delay: 0.16s; }
+.bower-delay-3 { animation-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bower-rise,
+  .bower-fade {
+    animation: none;
+  }
+}
+
+/* Reveal on scroll, progressively enhanced. */
+.bower-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.bower-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bower-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
