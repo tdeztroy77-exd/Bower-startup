@@ -6,7 +6,10 @@ import { cn } from "@/lib/utils"
 type Accent = "emerald" | "amber" | "coral" | "indigo" | "slate"
 
 const accentTile: Record<Accent, string> = {
-  emerald: "bg-secondary text-primary",
+  // The default tile is the brand accent, not a second colour. A row of
+  // stat cards with five different icon colours is the dated pattern; one
+  // accent on every tile is the current one.
+  emerald: "bg-brand-lime-soft text-pine",
   amber: "bg-warning/12 text-warning",
   coral: "bg-destructive/10 text-destructive",
   indigo: "bg-chart-3/10 text-chart-3",
@@ -79,7 +82,7 @@ export function StatCard({
 
   const classes = cn(
     "group block rounded-2xl border border-border/80 bg-card p-4 shadow-card transition-[border-color,box-shadow,transform] duration-200",
-    href && "hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+    href && "hover:-translate-y-0.5 hover:border-pine/30 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
     className,
   )
 

@@ -105,6 +105,7 @@ export const PATCH_LOG: PatchDescriptor[] = [
   { id: "p_2026_11_003", description: "E-signature requests, audit events, signed document storage", sql: "23-esignature.sql", kind: "schema" },
   { id: "p_2026_11_004", description: "Late fee policy and one-per-invoice charges", sql: "24-late-fees.sql", kind: "schema" },
   { id: "p_2026_11_005", description: "SMS reminder settings and delivery log", sql: "25-sms-reminders.sql", kind: "schema" },
+  { id: "p_2026_11_006", description: "Company workspace: member directory, tokenised invitations, presence, team calendar, company notifications", sql: "26-company-directory.sql", kind: "schema" },
 ]
 
 export function describePatches(): Array<{ id: string; description: string; kind: string }> {

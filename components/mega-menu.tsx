@@ -75,7 +75,7 @@ export function MegaMenu({ sections, className }: { sections: MegaSection[]; cla
                                   href={it.href}
                                   className="group block"
                                 >
-                                  <p className="text-sm font-medium leading-tight text-foreground group-hover:text-primary">
+                                  <p className="text-sm font-medium leading-tight text-foreground group-hover:text-pine">
                                     {it.label}
                                   </p>
                                   {it.description && (
@@ -103,7 +103,7 @@ export function MegaMenu({ sections, className }: { sections: MegaSection[]; cla
                         </p>
                         <Link
                           href={s.featured.href}
-                          className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+                          className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-pine hover:underline"
                         >
                           {s.featured.cta} <ArrowUpRight className="size-3.5" />
                         </Link>

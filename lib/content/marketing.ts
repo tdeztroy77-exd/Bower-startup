@@ -193,14 +193,17 @@ export const features: Feature[] = [
   },
   {
     slug: "company-view",
-    name: "Company profile",
-    tagline: "Your workspace, named and configured.",
+    name: "Company workspace",
+    tagline: "Your team, your roles, one shared calendar.",
     summary:
-      "A company profile and workspace settings for the account. Multi-landlord books and role-based team access are in development, not available today.",
+      "A company workspace for agencies and property managers: a live team directory, role-based access, invitations, presence and a shared company calendar — so the whole team works from the same picture.",
     bullets: [
-      "Company profile for the workspace",
-      "Account-level settings",
-      "One login per workspace"
+      "Team directory with role, department and last seen",
+      "Role-based access for owner, manager, accountant and viewer",
+      "Invitations by email, accepted with a single link",
+      "Live presence, so you know who is actually working",
+      "One company calendar for inspections, viewings and meetings",
+      "Notifications routed to the right person"
     ],
     icon: "Briefcase",
   },

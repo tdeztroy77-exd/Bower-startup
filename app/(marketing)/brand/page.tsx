@@ -275,7 +275,7 @@ export default function BrandPage() {
               <div className="flex flex-wrap gap-2">
                 <span className="inline-flex h-10 items-center rounded-xl bg-primary px-4 text-[12.5px] font-semibold text-primary-foreground">Record payment</span>
                 <span className="inline-flex h-10 items-center rounded-xl border border-border bg-card px-4 text-[12.5px] font-semibold text-foreground">Send reminder</span>
-                <span className="inline-flex h-10 items-center rounded-xl px-4 text-[12.5px] font-semibold text-primary">View statement</span>
+                <span className="inline-flex h-10 items-center rounded-xl px-4 text-[12.5px] font-semibold text-pine">View statement</span>
               </div>
               <div className="rounded-2xl border border-border bg-card p-5 shadow-card">
                 <div className="flex items-start justify-between gap-4">
@@ -342,10 +342,10 @@ export default function BrandPage() {
             <a href="/brand/bower-logo.svg" download className="inline-flex h-10 items-center gap-2 rounded-xl bg-primary px-4 text-[12.5px] font-semibold text-primary-foreground hover:bg-primary/90">
               <Download className="size-3.5" /> Logo SVG
             </a>
-            <a href="/brand/bower-mark.svg" download className="inline-flex h-10 items-center gap-2 rounded-xl border border-border bg-card px-4 text-[12.5px] font-semibold text-foreground hover:border-primary/30">
+            <a href="/brand/bower-mark.svg" download className="inline-flex h-10 items-center gap-2 rounded-xl border border-border bg-card px-4 text-[12.5px] font-semibold text-foreground hover:border-pine/30">
               <Download className="size-3.5" /> Mark SVG
             </a>
-            <Link href="/press" className="inline-flex h-10 items-center gap-2 rounded-xl border border-border bg-card px-4 text-[12.5px] font-semibold text-foreground hover:border-primary/30">
+            <Link href="/press" className="inline-flex h-10 items-center gap-2 rounded-xl border border-border bg-card px-4 text-[12.5px] font-semibold text-foreground hover:border-pine/30">
               Press kit <ArrowUpRight className="size-3.5" />
             </Link>
           </div>

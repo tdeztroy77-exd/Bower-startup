@@ -103,11 +103,11 @@ export function ReconciliationRules() {
         <li
           key={r.id}
           className={cn(
-            "flex items-start gap-3 rounded-xl border border-border/70 px-3 py-3 transition-colors hover:border-primary/20 hover:bg-muted/30",
+            "flex items-start gap-3 rounded-xl border border-border/70 px-3 py-3 transition-colors hover:border-pine/20 hover:bg-muted/30",
             !r.active && "opacity-70",
           )}
         >
-          <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-md bg-secondary text-[11px] font-semibold tabular text-primary">
+          <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-md bg-secondary text-[11px] font-semibold tabular text-pine">
             {r.priority}
           </span>
 

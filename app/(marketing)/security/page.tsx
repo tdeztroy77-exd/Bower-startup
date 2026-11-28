@@ -70,7 +70,7 @@ export default function SecurityPage() {
         <div className="grid gap-px overflow-hidden rounded-2xl border border-border/80 bg-border/70 sm:grid-cols-2 lg:grid-cols-3">
           {principles.map((principle) => (
             <article key={principle.title} className="bg-card p-6">
-              <principle.icon className="size-[18px] text-primary" strokeWidth={1.9} />
+              <principle.icon className="size-[18px] text-pine" strokeWidth={1.9} />
               <h2 className="mt-5 text-[14.5px] font-semibold text-foreground">{principle.title}</h2>
               <p className="mt-2 text-[12.5px] leading-6 text-muted-foreground">{principle.body}</p>
             </article>

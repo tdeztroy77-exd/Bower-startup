@@ -50,7 +50,7 @@ export default async function SolutionPage({
           </Link>
           <div className="mt-8 grid items-center gap-10 lg:grid-cols-[1fr_0.85fr]">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">{solution.audience}</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-pine">{solution.audience}</p>
               <h1 className="mt-3 max-w-[18ch] text-[36px] font-semibold leading-[1.02] tracking-[-0.04em] sm:text-[50px]">
                 {solution.name}
               </h1>
@@ -65,7 +65,7 @@ export default async function SolutionPage({
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex h-10 items-center justify-center rounded-xl border border-border bg-card px-4 text-[13px] font-semibold text-foreground transition-colors hover:border-primary/30 hover:text-primary"
+                  className="inline-flex h-10 items-center justify-center rounded-xl border border-border bg-card px-4 text-[13px] font-semibold text-foreground transition-colors hover:border-pine/30 hover:text-pine"
                 >
                   Ask about fit
                 </Link>
@@ -87,7 +87,7 @@ export default async function SolutionPage({
           <ul className="divide-y divide-border/70 border-y border-border/70">
             {included.map((item) => (
               <li key={item} className="flex items-start gap-3 py-4">
-                <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-secondary text-primary">
+                <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-secondary text-pine">
                   <Check className="size-3" strokeWidth={2.8} />
                 </span>
                 <span className="text-[14px] leading-6 text-foreground">{item}</span>

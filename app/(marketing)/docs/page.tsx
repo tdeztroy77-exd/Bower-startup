@@ -88,7 +88,7 @@ export default async function DocsHub({
             <ul className="mt-4 divide-y divide-border/70 border-y border-border/70">
               {results.map((article) => (
                 <li key={article.slug}>
-                  <Link href={`/docs/${article.slug}`} className="flex items-start gap-3 py-4 transition-colors hover:text-primary">
+                  <Link href={`/docs/${article.slug}`} className="flex items-start gap-3 py-4 transition-colors hover:text-pine">
                     <span className="min-w-0 flex-1">
                       <span className="block text-[14px] font-semibold text-foreground">{article.title}</span>
                       <span className="mt-0.5 block text-[12.5px] leading-5 text-muted-foreground">{article.excerpt}</span>
@@ -109,7 +109,7 @@ export default async function DocsHub({
               return (
                 <div key={category.slug} className="rounded-2xl border border-border/80 bg-card p-5 shadow-card">
                   <div className="flex items-center gap-3">
-                    <span className="grid size-9 place-items-center rounded-xl bg-secondary text-primary">
+                    <span className="grid size-9 place-items-center rounded-xl bg-secondary text-pine">
                       <Icon className="size-4" strokeWidth={1.9} />
                     </span>
                     <div>
@@ -135,7 +135,7 @@ export default async function DocsHub({
             })}
           </div>
 
-          <div className="mt-6 flex flex-col gap-4 rounded-2xl border border-primary/15 bg-secondary p-5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-6 flex flex-col gap-4 rounded-2xl border border-pine/15 bg-secondary p-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-[13px] font-semibold text-secondary-foreground">Looking for an API?</p>
               <p className="mt-1 max-w-lg text-[12.5px] leading-6 text-secondary-foreground/70">

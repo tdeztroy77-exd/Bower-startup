@@ -63,7 +63,7 @@ export default async function FeaturePage({
           <div className="mt-8 grid items-center gap-10 lg:grid-cols-[1fr_0.85fr]">
             <div>
               <div className="flex items-center gap-3">
-                <span className="grid size-11 place-items-center rounded-2xl bg-secondary text-primary">
+                <span className="grid size-11 place-items-center rounded-2xl bg-secondary text-pine">
                   {Icon ? <Icon className="size-5" strokeWidth={1.9} /> : null}
                 </span>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Feature</p>
@@ -82,7 +82,7 @@ export default async function FeaturePage({
                 </Link>
                 <Link
                   href="/pricing"
-                  className="inline-flex h-10 items-center justify-center rounded-xl border border-border bg-card px-4 text-[13px] font-semibold text-foreground transition-colors hover:border-primary/30 hover:text-primary"
+                  className="inline-flex h-10 items-center justify-center rounded-xl border border-border bg-card px-4 text-[13px] font-semibold text-foreground transition-colors hover:border-pine/30 hover:text-pine"
                 >
                   See pricing
                 </Link>
@@ -107,7 +107,7 @@ export default async function FeaturePage({
           <ul className="divide-y divide-border/70 border-y border-border/70">
             {feature.bullets.map((bullet) => (
               <li key={bullet} className="flex items-start gap-3 py-4">
-                <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-secondary text-primary">
+                <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-secondary text-pine">
                   <Check className="size-3" strokeWidth={2.8} />
                 </span>
                 <span className="text-[14px] leading-6 text-foreground">{bullet}</span>
@@ -129,14 +129,14 @@ export default async function FeaturePage({
               <Link
                 key={other.slug}
                 href={`/features/${other.slug}`}
-                className="group rounded-2xl border border-border/80 bg-card p-5 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-primary/30"
+                className="group rounded-2xl border border-border/80 bg-card p-5 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-pine/30"
               >
-                <span className="grid size-9 place-items-center rounded-xl bg-secondary text-primary">
+                <span className="grid size-9 place-items-center rounded-xl bg-secondary text-pine">
                   {OtherIcon ? <OtherIcon className="size-[17px]" strokeWidth={1.9} /> : null}
                 </span>
                 <p className="mt-4 text-[14px] font-semibold text-foreground">{other.name}</p>
                 <p className="mt-1 text-[12.5px] leading-5 text-muted-foreground">{other.tagline}</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-primary">
+                <span className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-pine">
                   Read more <ArrowUpRight className="size-3.5" />
                 </span>
               </Link>

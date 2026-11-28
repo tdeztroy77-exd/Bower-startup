@@ -32,7 +32,7 @@ export default function NotFound() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex h-10 items-center rounded-xl border border-border bg-card px-4 text-[13px] font-semibold text-foreground hover:border-primary/30 hover:text-primary"
+              className="inline-flex h-10 items-center rounded-xl border border-border bg-card px-4 text-[13px] font-semibold text-foreground hover:border-pine/30 hover:text-pine"
             >
               Report a broken link
             </Link>

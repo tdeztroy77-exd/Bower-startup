@@ -72,7 +72,7 @@ function statusLabel(status?: string | null) {
 
 function RequestCard({ request }: { request: MaintenanceRequestRow }) {
   return (
-    <article className="flex flex-col rounded-2xl border border-border/80 bg-card p-4 shadow-card transition-colors hover:border-primary/30">
+    <article className="flex flex-col rounded-2xl border border-border/80 bg-card p-4 shadow-card transition-colors hover:border-pine/30">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <h3 className="truncate text-[14px] font-semibold leading-5 tracking-[-0.01em] text-foreground">

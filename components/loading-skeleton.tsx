@@ -21,7 +21,7 @@ export function Skeleton({ className }: { className?: string }) {
 export function PageLoading() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="bg-primary py-20">
+      <div className="bg-muted py-20">
         <div className="mx-auto max-w-[1320px] px-5 lg:px-10">
           <Skeleton className="h-4 w-32 bg-primary-foreground/15" />
           <Skeleton className="mt-8 h-12 w-2/3 bg-primary-foreground/15" />

@@ -11,7 +11,7 @@ export function ForgotPasswordForm() {
     <Card className="w-full max-w-md">
       <CardHeader className="space-y-1">
         <div className="flex justify-center mb-2">
-          <KeyRound className="h-10 w-10 text-primary" />
+          <KeyRound className="h-10 w-10 text-pine" />
         </div>
         <CardTitle className="text-center text-[22px] font-semibold tracking-[-0.02em]">Reset your password</CardTitle>
         <CardDescription className="text-center">
@@ -36,7 +36,7 @@ export function ForgotPasswordForm() {
             Send reset link
           </Button>
           <div className="text-center text-sm text-muted-foreground">
-            <Link href="/auth/login" className="text-primary hover:underline inline-flex items-center gap-1">
+            <Link href="/auth/login" className="text-pine hover:underline inline-flex items-center gap-1">
               <ArrowLeft className="h-3 w-3" />
               Back to sign in
             </Link>

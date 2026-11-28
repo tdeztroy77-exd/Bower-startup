@@ -267,7 +267,7 @@ export default function DocumentsPage() {
                   className={cn(
                     "inline-flex h-8 items-center gap-1.5 rounded-lg border px-3 text-[12.5px] font-medium transition-colors",
                     isActive
-                      ? "border-primary/20 bg-secondary text-secondary-foreground"
+                      ? "border-pine/20 bg-secondary text-secondary-foreground"
                       : "border-border/80 bg-card text-muted-foreground hover:text-foreground",
                   )}
                 >
@@ -326,7 +326,7 @@ export default function DocumentsPage() {
                             <div className="min-w-0">
                               <Link
                                 href={`/dashboard/documents/${document.id}`}
-                                className="block truncate text-[13px] font-medium text-foreground hover:text-primary hover:underline"
+                                className="block truncate text-[13px] font-medium text-foreground hover:text-pine hover:underline"
                               >
                                 {document.name || "Untitled document"}
                               </Link>
@@ -369,7 +369,7 @@ export default function DocumentsPage() {
                                   asChild
                                   variant="ghost"
                                   size="icon-sm"
-                                  className="rounded-lg text-muted-foreground hover:text-primary"
+                                  className="rounded-lg text-muted-foreground hover:text-pine"
                                 >
                                   <a
                                     href={document.file_url}
@@ -384,7 +384,7 @@ export default function DocumentsPage() {
                                   asChild
                                   variant="ghost"
                                   size="icon-sm"
-                                  className="rounded-lg text-muted-foreground hover:text-primary"
+                                  className="rounded-lg text-muted-foreground hover:text-pine"
                                 >
                                   <a
                                     href={document.file_url}
@@ -402,7 +402,7 @@ export default function DocumentsPage() {
                               asChild
                               variant="ghost"
                               size="icon-sm"
-                              className="rounded-lg text-muted-foreground hover:text-primary"
+                              className="rounded-lg text-muted-foreground hover:text-pine"
                             >
                               <Link
                                 href={`/dashboard/documents/${document.id}`}

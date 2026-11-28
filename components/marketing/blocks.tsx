@@ -3,23 +3,38 @@ import type { LucideIcon } from "lucide-react"
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react"
 import { cn } from "@/lib/utils"
 
+/**
+ * A page section.
+ *
+ * `band` paints the whole section. The three brand surfaces are used one
+ * at a time — a lime band, a mint band, a pine-ink band — so the page has
+ * a colour rhythm instead of being one flat cream sheet. The content
+ * inside a band is written with pine-ink colours, because on a coloured
+ * surface the ink is the text.
+ */
 export function Section({
   children,
   className,
   muted = false,
   bordered = false,
+  band = "none",
 }: {
   children: React.ReactNode
   className?: string
   muted?: boolean
   bordered?: boolean
+  band?: "none" | "mint" | "lime" | "ink"
 }) {
   return (
     <section
+      data-band={band === "none" ? undefined : band}
       className={cn(
         "relative py-16 sm:py-20 lg:py-24",
-        muted && "bg-muted/40",
-        bordered && "border-y border-border/70",
+        band === "none" && muted && "bg-muted/40",
+        band === "none" && bordered && "border-y border-border/70",
+        band === "mint" && "band-mint",
+        band === "lime" && "band-lime",
+        band === "ink" && "brand-sweep",
         className,
       )}
     >
@@ -32,11 +47,11 @@ export function Pill({ children, className }: { children: React.ReactNode; class
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-[11.5px] font-medium text-muted-foreground shadow-card",
+        "inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 text-[12px] font-medium text-muted-foreground shadow-card",
         className,
       )}
     >
-      <span className="size-1.5 rounded-full bg-primary" />
+      <span className="size-1.5 rounded-full bg-brand-lime ring-4 ring-brand-lime/25" />
       {children}
     </span>
   )
@@ -48,13 +63,18 @@ export function SectionHeader({
   intro,
   align = "left",
   action,
+  tone = "default",
 }: {
   eyebrow?: string
   title: React.ReactNode
   intro?: string
   align?: "left" | "center"
   action?: { label: string; href: string }
+  /** `ink` is for a coloured band, where the ink is the text colour. */
+  tone?: "default" | "ink"
 }) {
+  const onBand = tone === "ink"
+
   return (
     <div
       className={cn(
@@ -63,16 +83,35 @@ export function SectionHeader({
       )}
     >
       <div className={cn("max-w-2xl", align === "center" && "mx-auto")}>
-        {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-        <h2 className="mt-3 text-[30px] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground sm:text-[38px] lg:text-[42px]">
+        {eyebrow ? (
+          <p className={cn("eyebrow", onBand && "text-brand-ink/60")}>{eyebrow}</p>
+        ) : null}
+        <h2
+          className={cn(
+            "mt-3 text-[30px] font-semibold leading-[1.08] tracking-[-0.035em] sm:text-[38px] lg:text-[42px]",
+            onBand ? "text-brand-ink" : "text-foreground",
+          )}
+        >
           {title}
         </h2>
-        {intro ? <p className="mt-4 max-w-xl text-[15px] leading-7 text-muted-foreground">{intro}</p> : null}
+        {intro ? (
+          <p
+            className={cn(
+              "mt-4 max-w-xl text-[15px] leading-7",
+              onBand ? "text-brand-ink/70" : "text-muted-foreground",
+            )}
+          >
+            {intro}
+          </p>
+        ) : null}
       </div>
       {action ? (
         <Link
           href={action.href}
-          className="inline-flex shrink-0 items-center gap-1.5 text-[13px] font-semibold text-primary hover:underline"
+          className={cn(
+            "inline-flex shrink-0 items-center gap-1.5 text-[13px] font-semibold hover:underline",
+            onBand ? "text-brand-ink" : "text-pine",
+          )}
         >
           {action.label}
           <ArrowUpRight className="size-3.5" />
@@ -97,13 +136,13 @@ export function FeatureCard({
 }) {
   const inner = (
     <>
-      <span className="grid size-10 place-items-center rounded-xl bg-secondary text-primary">
+      <span className="grid size-10 place-items-center rounded-xl bg-secondary text-pine">
         <Icon className="size-[19px]" strokeWidth={1.9} />
       </span>
       <h3 className="mt-5 text-[16px] font-semibold tracking-[-0.01em] text-foreground">{title}</h3>
       <p className="mt-2 text-[13.5px] leading-6 text-muted-foreground">{body}</p>
       {href ? (
-        <span className="mt-4 inline-flex items-center gap-1 text-[12.5px] font-semibold text-primary">
+        <span className="mt-4 inline-flex items-center gap-1 text-[12.5px] font-semibold text-pine">
           Learn more <ArrowUpRight className="size-3.5" />
         </span>
       ) : null}
@@ -112,7 +151,7 @@ export function FeatureCard({
 
   const classes = cn(
     "group block rounded-2xl border border-border/80 bg-card p-5 shadow-card transition-[border-color,box-shadow,transform] duration-200",
-    href && "hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lift",
+    href && "hover:-translate-y-0.5 hover:border-pine/30 hover:shadow-lift",
     className,
   )
 
@@ -145,12 +184,34 @@ export function MetricStrip({
   )
 }
 
-export function CheckList({ items, className }: { items: string[]; className?: string }) {
+export function CheckList({
+  items,
+  className,
+  tone = "default",
+}: {
+  items: string[]
+  className?: string
+  /** `ink` is for a coloured band, where the ink is the text colour. */
+  tone?: "default" | "ink"
+}) {
+  const onBand = tone === "ink"
+
   return (
     <ul className={cn("space-y-2.5", className)}>
       {items.map((item) => (
-        <li key={item} className="flex items-start gap-2.5 text-[13.5px] leading-6 text-muted-foreground">
-          <span className="mt-0.5 grid size-4 shrink-0 place-items-center rounded-full bg-secondary text-primary">
+        <li
+          key={item}
+          className={cn(
+            "flex items-start gap-2.5 text-[13.5px] leading-6",
+            onBand ? "text-brand-ink/80" : "text-muted-foreground",
+          )}
+        >
+          <span
+            className={cn(
+              "mt-0.5 grid size-4 shrink-0 place-items-center rounded-full",
+              onBand ? "bg-brand-ink/12 text-brand-ink" : "bg-secondary text-pine",
+            )}
+          >
             <Check className="size-2.5" strokeWidth={3} />
           </span>
           {item}
@@ -175,9 +236,9 @@ export function CtaBand({
 }) {
   return (
     <Section>
-      <div className="relative overflow-hidden rounded-3xl border border-primary/15 bg-secondary px-6 py-12 sm:px-12 lg:py-16">
-        <div className="pointer-events-none absolute -right-20 -top-24 size-72 rounded-full border border-primary/10" />
-        <div className="pointer-events-none absolute -bottom-28 right-16 size-64 rounded-full border border-primary/10" />
+      <div className="relative overflow-hidden rounded-3xl border border-pine/15 bg-secondary px-6 py-12 sm:px-12 lg:py-16">
+        <div className="pointer-events-none absolute -right-20 -top-24 size-72 rounded-full border border-pine/10" />
+        <div className="pointer-events-none absolute -bottom-28 right-16 size-64 rounded-full border border-pine/10" />
         <div className="relative max-w-2xl">
           <h2 className="text-[30px] font-semibold leading-[1.08] tracking-[-0.035em] text-secondary-foreground sm:text-[40px]">
             {title}
@@ -214,7 +275,7 @@ export function FaqList({ items }: { items: Array<{ q: string; a: string }> }) {
         <details key={item.q} className="group px-5 py-4 sm:px-6">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[14px] font-medium text-foreground [&::-webkit-details-marker]:hidden">
             {item.q}
-            <span className="grid size-6 shrink-0 place-items-center rounded-full border border-border text-muted-foreground transition-colors group-open:border-primary/30 group-open:bg-secondary group-open:text-primary">
+            <span className="grid size-6 shrink-0 place-items-center rounded-full border border-border text-muted-foreground transition-colors group-open:border-pine/30 group-open:bg-secondary group-open:text-pine">
               <span className="text-[13px] leading-none group-open:hidden">+</span>
               <span className="hidden text-[13px] leading-none group-open:block">−</span>
             </span>

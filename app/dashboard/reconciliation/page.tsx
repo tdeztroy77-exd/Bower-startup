@@ -184,7 +184,7 @@ export default async function ReconciliationPage() {
           </p>
           <p className="text-[13px] leading-6 text-muted-foreground">
             Unmatched payments wait in this queue until you assign a tenant. They are also listed on the{" "}
-            <Link href="/dashboard/paybill" className="font-medium text-primary hover:underline">
+            <Link href="/dashboard/paybill" className="font-medium text-pine hover:underline">
               PayBill page
             </Link>
             . You can assign the tenant by hand, or fix the rule and re-run.

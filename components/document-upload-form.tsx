@@ -228,7 +228,7 @@ export function DocumentUploadForm() {
                         className="max-h-48 mx-auto rounded-md border"
                       />
                       <div className="flex items-center justify-center gap-1.5 text-sm font-medium break-all">
-                        <File className="h-4 w-4 flex-shrink-0 text-primary" />
+                        <File className="h-4 w-4 flex-shrink-0 text-pine" />
                         {selectedFile?.name}
                       </div>
                       <div className="text-xs text-muted-foreground">
@@ -237,7 +237,7 @@ export function DocumentUploadForm() {
                     </div>
                   ) : selectedFile ? (
                     <>
-                      <File className="h-8 w-8 mx-auto text-primary" />
+                      <File className="h-8 w-8 mx-auto text-pine" />
                       <div className="text-sm font-medium break-all">{selectedFile.name}</div>
                       <div className="text-xs text-muted-foreground">
                         {(selectedFile.size / 1024 / 1024).toFixed(2)} MB

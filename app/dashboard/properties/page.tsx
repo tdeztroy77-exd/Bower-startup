@@ -210,14 +210,14 @@ export default function PropertiesPage() {
                               loading="lazy"
                             />
                           ) : (
-                            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-secondary text-primary">
+                            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-secondary text-pine">
                               <Building2 className="size-4" strokeWidth={1.9} />
                             </span>
                           )}
                           <div className="min-w-0">
                             <Link
                               href={`/dashboard/properties/${property.id}`}
-                              className="block truncate text-[13.5px] font-medium text-foreground hover:text-primary"
+                              className="block truncate text-[13.5px] font-medium text-foreground hover:text-pine"
                             >
                               {property.name}
                             </Link>
@@ -264,10 +264,10 @@ export default function PropertiesPage() {
                       </td>
                       <td className="text-right">
                         <div className="flex items-center justify-end gap-1">
-                          <Button asChild variant="ghost" size="sm" className="h-8 rounded-lg text-xs text-muted-foreground hover:text-primary">
+                          <Button asChild variant="ghost" size="sm" className="h-8 rounded-lg text-xs text-muted-foreground hover:text-pine">
                             <Link href={`/dashboard/properties/${property.id}`}>View</Link>
                           </Button>
-                          <Button asChild variant="ghost" size="sm" className="h-8 rounded-lg text-xs text-muted-foreground hover:text-primary">
+                          <Button asChild variant="ghost" size="sm" className="h-8 rounded-lg text-xs text-muted-foreground hover:text-pine">
                             <Link href={`/dashboard/properties/${property.id}/edit`}>Edit</Link>
                           </Button>
                         </div>

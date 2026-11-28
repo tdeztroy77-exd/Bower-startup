@@ -72,7 +72,7 @@ export function CookieConsent() {
           <p className="mt-2 text-sm leading-6 text-muted-foreground">
             We use essential cookies to keep you signed in and a small set of analytics cookies to
             understand how the site is used. We never use third-party advertising trackers.{" "}
-            <Link href="/legal/privacy" className="text-primary underline">
+            <Link href="/legal/privacy" className="text-pine underline">
               Read the privacy policy
             </Link>
             .

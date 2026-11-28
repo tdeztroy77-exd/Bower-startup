@@ -145,14 +145,14 @@ export default function TenantPage() {
             <Field label="Full name">{tenantName(tenant)}</Field>
             {tenant.email ? (
               <Field label="Email">
-                <a href={`mailto:${tenant.email}`} className="text-primary hover:underline break-all">
+                <a href={`mailto:${tenant.email}`} className="text-pine hover:underline break-all">
                   {tenant.email}
                 </a>
               </Field>
             ) : null}
             {tenant.phone ? (
               <Field label="Phone">
-                <a href={`tel:${tenant.phone}`} className="text-primary hover:underline">
+                <a href={`tel:${tenant.phone}`} className="text-pine hover:underline">
                   {tenant.phone}
                 </a>
               </Field>
@@ -163,7 +163,7 @@ export default function TenantPage() {
             ) : null}
             {tenant.emergency_contact_phone ? (
               <Field label="Emergency phone">
-                <a href={`tel:${tenant.emergency_contact_phone}`} className="text-primary hover:underline">
+                <a href={`tel:${tenant.emergency_contact_phone}`} className="text-pine hover:underline">
                   {tenant.emergency_contact_phone}
                 </a>
               </Field>
@@ -195,7 +195,7 @@ export default function TenantPage() {
             ) : null}
             {rent != null && rent !== "" ? (
               <Field label="Monthly rent">
-                <span className="tabular text-primary">{formatCurrency(rent)}</span>
+                <span className="tabular text-pine">{formatCurrency(rent)}</span>
               </Field>
             ) : null}
             {tenant.deposit_amount ? (

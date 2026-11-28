@@ -21,6 +21,7 @@ import {
   MpesaPromptPreview,
   ReconciliationPreview,
 } from "@/components/marketing/product-preview"
+import { CompanyPreview } from "@/components/marketing/company-preview"
 
 const workflowHighlights = [
   {
@@ -61,37 +62,52 @@ export default function MarketingHome() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border/70">
+        {/* The ambient colour field — the one saturated wash on the public
+            site. It drifts slowly enough to read as atmosphere rather than
+            as animation, so the first screen feels alive without the
+            layout ever moving. */}
+        <div
+          className="field-color pointer-events-none absolute inset-x-0 -top-28 h-[620px] opacity-90 blur-2xl motion-safe:animate-[field-drift_30s_ease-in-out_infinite_alternate]"
+          aria-hidden="true"
+        />
         <div className="pointer-events-none absolute inset-0 grid-lines opacity-70" aria-hidden="true" />
-        <div className="container-x relative pb-14 pt-12 sm:pb-20 sm:pt-16 lg:pb-24 lg:pt-20">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14">
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background"
+          aria-hidden="true"
+        />
+        <div className="container-x relative pb-16 pt-12 sm:pb-24 sm:pt-16 lg:pb-28 lg:pt-20">
+          <div className="grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
             <div className="bower-rise">
-              <Pill>Bower — property operations</Pill>
-              <h1 className="mt-6 max-w-[15ch] text-[46px] font-medium leading-[0.98] tracking-[-0.03em] text-foreground sm:text-[60px] lg:text-[68px]">
-                A quieter way to run rentals.
+              <Pill className="border-brand-lime/50 bg-brand-lime-soft/70 shadow-[0_1px_2px_rgba(7,35,28,0.06)]">
+                Bower — property operations
+              </Pill>
+              <h1 className="mt-7 max-w-[13ch] text-[48px] font-medium leading-[0.96] tracking-[-0.035em] text-foreground sm:text-[64px] lg:text-[76px]">
+                A quieter way to run{" "}
+                <span className="marker-lime">rentals.</span>
               </h1>
-              <p className="mt-6 max-w-[520px] text-[15.5px] leading-7 text-muted-foreground sm:text-[16.5px]">
-                Rent, tenants, leases and reporting in one calm workspace. Your tenants pay the way
+              <p className="mt-7 max-w-[500px] text-[16px] leading-8 text-muted-foreground sm:text-[17px]">
+                Rent, tenants, leases and reporting in one workspace. Your tenants pay the way
                 they already do; you get the whole picture, without the noise.
               </p>
-              <div className="mt-8 flex flex-col gap-2.5 sm:flex-row">
+              <div className="mt-9 flex flex-col gap-2.5 sm:flex-row">
                 <Link
                   href="/auth/sign-up"
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-[13.5px] font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                  className="group inline-flex h-12 items-center justify-center gap-2 rounded-xl btn-sheen bg-primary px-6 text-[14px] font-semibold text-primary-foreground shadow-glow transition-all duration-300 ease-expo hover:-translate-y-0.5 hover:shadow-glow-strong"
                 >
                   Start your {TRIAL_DAYS}-day trial
-                  <ArrowRight className="size-4" />
+                  <ArrowRight className="size-4 transition-transform duration-300 ease-spring group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href="/pricing"
-                  className="inline-flex h-11 items-center justify-center rounded-xl border border-border bg-card px-5 text-[13.5px] font-semibold text-foreground transition-colors hover:border-primary/30 hover:text-primary"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-border bg-card px-6 text-[14px] font-semibold text-foreground shadow-card transition-all duration-300 ease-expo hover:-translate-y-0.5 hover:border-pine/40 hover:text-pine hover:shadow-lift"
                 >
                   See the price
                 </Link>
               </div>
-              <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-muted-foreground">
+              <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-[12.5px] text-muted-foreground">
                 {["No credit card", "Unlimited units", "Cancel anytime"].map((item) => (
                   <span key={item} className="inline-flex items-center gap-1.5">
-                    <Check className="size-3.5 text-primary" strokeWidth={2.6} />
+                    <Check className="size-3.5 text-live" strokeWidth={2.6} />
                     {item}
                   </span>
                 ))}
@@ -99,7 +115,17 @@ export default function MarketingHome() {
             </div>
 
             <div className="bower-rise bower-delay-1 relative lg:justify-self-end">
-              <div className="pointer-events-none absolute -inset-6 rounded-[32px] bg-secondary/50 blur-2xl" aria-hidden="true" />
+              {/* The product, framed: one wide lime bloom and a tighter
+                  pine halo, so the screenshot reads as an object lit from
+                  behind rather than as a picture pasted onto a page. */}
+              <div
+                className="pointer-events-none absolute -inset-14 rounded-[56px] bg-brand-lime/22 blur-3xl"
+                aria-hidden="true"
+              />
+              <div
+                className="pointer-events-none absolute -inset-2 rounded-[32px] bg-brand-ink/55 blur-xl"
+                aria-hidden="true"
+              />
               <DashboardPreview className="relative w-full max-lg:[mask-image:linear-gradient(to_right,black_78%,transparent)]" />
             </div>
           </div>
@@ -139,20 +165,21 @@ export default function MarketingHome() {
       </Section>
 
       {/* Money in */}
-      <Section muted bordered>
+      <Section band="mint">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="eyebrow">Money in</p>
-            <h2 className="mt-3 text-[30px] font-semibold leading-[1.08] tracking-[-0.035em] sm:text-[38px]">
+            <p className="eyebrow text-brand-ink/60">Money in</p>
+            <h2 className="mt-3 text-[30px] font-semibold leading-[1.08] tracking-[-0.035em] text-brand-ink sm:text-[38px]">
               Rent arrives. The record updates itself.
             </h2>
-            <p className="mt-4 max-w-lg text-[15px] leading-7 text-muted-foreground">
+            <p className="mt-4 max-w-lg text-[15px] leading-7 text-brand-ink/70">
               Tenants pay into your paybill, or get a payment prompt on their phone. Bower reads the
               transaction, matches it to the tenancy and posts the receipt — then shows you what is
               still outstanding.
             </p>
             <CheckList
               className="mt-6"
+              tone="ink"
               items={[
                 "Paybill and till numbers per property",
                 "M-Pesa STK prompt for tenants who prefer it",
@@ -162,7 +189,7 @@ export default function MarketingHome() {
             />
             <Link
               href="/features/rent-collection"
-              className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-semibold text-primary hover:underline"
+              className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-semibold text-brand-ink hover:underline"
             >
               How rent collection works <ArrowUpRight className="size-3.5" />
             </Link>
@@ -195,13 +222,70 @@ export default function MarketingHome() {
             />
             <Link
               href="/features/maintenance"
-              className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-semibold text-primary hover:underline"
+              className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-semibold text-pine hover:underline"
             >
               See the maintenance workflow <ArrowUpRight className="size-3.5" />
             </Link>
           </div>
         </div>
       </Section>
+
+      {/* The team — the one dark band on the public site. Everything else
+          stays calm cream; this is where the workspace shows its own
+          surface, which is what makes the preview read as the real thing
+          rather than a picture of a thing. */}
+      <section className="brand-sweep relative overflow-hidden border-y border-border/70">
+        <div className="brand-grain pointer-events-none absolute inset-0 opacity-[0.05]" aria-hidden="true" />
+        <div className="container-x relative py-16 sm:py-20 lg:py-24">
+          <div className="grid items-center gap-10 lg:grid-cols-[0.94fr_1.06fr] lg:gap-16">
+            <div className="bower-rise">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-ink-muted">
+                Your team
+              </p>
+              <h2 className="mt-3 max-w-[16ch] text-[30px] font-semibold leading-[1.08] tracking-[-0.035em] text-brand-ink-foreground sm:text-[38px]">
+                Everyone sees the same thing, at the same time.
+              </h2>
+              <p className="mt-4 max-w-lg text-[15px] leading-7 text-brand-ink-muted">
+                Bring the manager, the clerk and the field agent into one workspace. Roles decide who
+                can change what, and the company calendar keeps every inspection and viewing on one
+                page.
+              </p>
+
+              <ul className="mt-7 space-y-3">
+                {[
+                  "A live directory — presence, role, department, last seen",
+                  "Roles that decide who can invite, edit and remove",
+                  "One company calendar for inspections, viewings and meetings",
+                  "Notifications that land in the right person's bell",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5">
+                    <span className="mt-[3px] grid size-[18px] shrink-0 place-items-center rounded-full bg-live/20">
+                      <Check className="size-2.5 text-live" strokeWidth={3} />
+                    </span>
+                    <span className="text-[13.5px] leading-6 text-brand-ink-foreground/85">{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                href="/features/company-view"
+                className="group mt-7 inline-flex items-center gap-1.5 text-[13px] font-semibold text-brand-ink-foreground transition-colors hover:text-live"
+              >
+                See the company workspace
+                <ArrowUpRight className="size-3.5 transition-transform duration-300 ease-spring group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+
+            <div className="bower-rise bower-delay-1 relative">
+              <div
+                className="pointer-events-none absolute -inset-8 rounded-[36px] bg-live/20 blur-3xl"
+                aria-hidden="true"
+              />
+              <CompanyPreview className="relative w-full shadow-lift" />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Catalogue */}
       <Section muted bordered>
@@ -217,10 +301,10 @@ export default function MarketingHome() {
               href={item.href}
               className="group flex flex-col bg-card p-5 transition-colors hover:bg-secondary/40"
             >
-              <item.icon className="size-[18px] text-primary" strokeWidth={1.9} />
+              <item.icon className="size-[18px] text-pine" strokeWidth={1.9} />
               <p className="mt-4 text-[13.5px] font-semibold text-foreground">{item.name}</p>
               <p className="mt-1 text-[12px] leading-5 text-muted-foreground">{item.body}</p>
-              <span className="mt-3 inline-flex items-center gap-1 text-[11.5px] font-medium text-muted-foreground transition-colors group-hover:text-primary">
+              <span className="mt-3 inline-flex items-center gap-1 text-[11.5px] font-medium text-muted-foreground transition-colors group-hover:text-pine">
                 Details <ArrowUpRight className="size-3" />
               </span>
             </Link>
@@ -229,17 +313,17 @@ export default function MarketingHome() {
       </Section>
 
       {/* Tenant payment */}
-      <Section>
+      <Section band="lime">
         <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div className="mx-auto w-full max-w-[260px]">
             <MpesaPromptPreview />
           </div>
           <div>
-            <p className="eyebrow">For your tenants</p>
-            <h2 className="mt-3 text-[30px] font-semibold leading-[1.08] tracking-[-0.035em] sm:text-[38px]">
+            <p className="eyebrow text-brand-ink/60">For your tenants</p>
+            <h2 className="mt-3 text-[30px] font-semibold leading-[1.08] tracking-[-0.035em] text-brand-ink sm:text-[38px]">
               No app to install. No new habit to learn.
             </h2>
-            <p className="mt-4 max-w-lg text-[15px] leading-7 text-muted-foreground">
+            <p className="mt-4 max-w-lg text-[15px] leading-7 text-brand-ink/75">
               Tenants pay with M-Pesa exactly as they do today. The payment prompt, receipt and balance
               update all happen without a phone call to you.
             </p>
@@ -250,10 +334,10 @@ export default function MarketingHome() {
                 { step: "03", title: "Both sides see the same truth", body: "Receipt for the tenant, collected rent and remaining balance for you." },
               ].map((item) => (
                 <li key={item.step} className="flex gap-4">
-                  <span className="mt-0.5 text-[11px] font-semibold tabular text-primary">{item.step}</span>
+                  <span className="mt-0.5 text-[11px] font-semibold tabular text-brand-ink/45">{item.step}</span>
                   <div>
-                    <p className="text-[14px] font-semibold text-foreground">{item.title}</p>
-                    <p className="mt-1 text-[13px] leading-6 text-muted-foreground">{item.body}</p>
+                    <p className="text-[14px] font-semibold text-brand-ink">{item.title}</p>
+                    <p className="mt-1 text-[13px] leading-6 text-brand-ink/70">{item.body}</p>
                   </div>
                 </li>
               ))}
@@ -305,7 +389,7 @@ export default function MarketingHome() {
             <div className="mt-6 grid gap-x-6 gap-y-2.5 border-t border-border/70 pt-6 sm:grid-cols-2">
               {plan.features.slice(0, 8).map((feature) => (
                 <p key={feature} className="flex items-start gap-2 text-[12.5px] leading-5 text-muted-foreground">
-                  <Check className="mt-0.5 size-3.5 shrink-0 text-primary" strokeWidth={2.6} />
+                  <Check className="mt-0.5 size-3.5 shrink-0 text-pine" strokeWidth={2.6} />
                   {feature}
                 </p>
               ))}

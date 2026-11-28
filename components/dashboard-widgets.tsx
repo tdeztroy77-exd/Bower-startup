@@ -66,7 +66,7 @@ export function LeaseExpiryAlerts() {
       action={
         <Link
           href="/dashboard/tenants"
-          className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
+          className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-pine"
         >
           All tenants <ArrowRight className="size-3.5" />
         </Link>
@@ -120,7 +120,7 @@ export function LeaseExpiryAlerts() {
           {items.length > 5 ? (
             <Link
               href="/dashboard/tenants"
-              className="flex items-center justify-center gap-1 pt-2 text-xs font-medium text-muted-foreground hover:text-primary"
+              className="flex items-center justify-center gap-1 pt-2 text-xs font-medium text-muted-foreground hover:text-pine"
             >
               {items.length - 5} more expiring
               <ArrowRight className="size-3" />
@@ -140,7 +140,7 @@ const typeIcons = {
 }
 
 const toneTile: Record<string, string> = {
-  default: "bg-secondary text-primary",
+  default: "bg-secondary text-pine",
   success: "bg-success/10 text-success",
   warning: "bg-warning/10 text-warning",
   destructive: "bg-destructive/10 text-destructive",

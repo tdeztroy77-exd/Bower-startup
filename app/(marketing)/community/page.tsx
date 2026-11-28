@@ -62,14 +62,14 @@ export default function CommunityPage() {
             <Link
               key={channel.name}
               href={channel.href}
-              className="group rounded-2xl border border-border/80 bg-card p-5 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-primary/30"
+              className="group rounded-2xl border border-border/80 bg-card p-5 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-pine/30"
             >
-              <span className="grid size-9 place-items-center rounded-xl bg-secondary text-primary">
+              <span className="grid size-9 place-items-center rounded-xl bg-secondary text-pine">
                 <channel.icon className="size-4" strokeWidth={1.9} />
               </span>
               <p className="mt-4 text-[14px] font-semibold text-foreground">{channel.name}</p>
               <p className="mt-1 text-[12.5px] leading-6 text-muted-foreground">{channel.description}</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold text-primary">
+              <span className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold text-pine">
                 {channel.cta} <ArrowUpRight className="size-3.5" />
               </span>
             </Link>

@@ -13,7 +13,7 @@ export default function DPAPage() {
     <div>
       <section className="border-b border-border/70">
         <div className="container-x pb-10 pt-14 sm:pt-16">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">Legal</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-pine">Legal</p>
           <h1 className="mt-5 text-[36px] font-semibold leading-[1.04] tracking-[-0.035em] sm:text-[46px]">
             Data Processing Agreement
           </h1>

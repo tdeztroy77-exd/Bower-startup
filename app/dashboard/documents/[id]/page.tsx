@@ -215,7 +215,7 @@ export default function DocumentDetailPage() {
                     <p className="text-xs font-medium text-muted-foreground">Property</p>
                     <Link
                       href={`/dashboard/properties/${document.properties.id}`}
-                      className="text-[13px] font-medium text-primary hover:underline"
+                      className="text-[13px] font-medium text-pine hover:underline"
                     >
                       {document.properties.name}
                     </Link>

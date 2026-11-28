@@ -37,7 +37,7 @@ export default function IntegrationsPage() {
                 className="rounded-2xl border border-border/80 bg-card p-6 shadow-card"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <span className="grid size-10 place-items-center rounded-xl bg-secondary text-primary">
+                  <span className="grid size-10 place-items-center rounded-xl bg-secondary text-pine">
                     <Icon className="size-[19px]" strokeWidth={1.9} />
                   </span>
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-success/10 px-2 py-0.5 text-[10.5px] font-semibold text-success ring-1 ring-inset ring-success/15">
@@ -50,7 +50,7 @@ export default function IntegrationsPage() {
                   href={integration.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold text-primary hover:underline"
+                  className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold text-pine hover:underline"
                 >
                   Provider documentation <ArrowUpRight className="size-3.5" />
                 </a>
@@ -69,7 +69,7 @@ export default function IntegrationsPage() {
             those integrations is blocking you, tell us — it is useful signal.
           </p>
           <div className="mt-3 flex flex-wrap gap-3">
-            <Link href="/contact" className="text-[12.5px] font-semibold text-primary hover:underline">
+            <Link href="/contact" className="text-[12.5px] font-semibold text-pine hover:underline">
               Request an integration
             </Link>
             <Link href="/docs/bulk-import" className="text-[12.5px] font-semibold text-foreground hover:underline">

@@ -35,9 +35,9 @@ export default function SolutionsHub() {
               <Link
                 key={solution.slug}
                 href={`/solutions/${solution.slug}`}
-                className="group flex flex-col rounded-2xl border border-border/80 bg-card p-6 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-primary/30"
+                className="group flex flex-col rounded-2xl border border-border/80 bg-card p-6 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-pine/30"
               >
-                <span className="grid size-10 place-items-center rounded-xl bg-secondary text-primary">
+                <span className="grid size-10 place-items-center rounded-xl bg-secondary text-pine">
                   <Icon className="size-[19px]" strokeWidth={1.9} />
                 </span>
                 <p className="mt-5 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
@@ -46,9 +46,9 @@ export default function SolutionsHub() {
                 <h2 className="mt-2 text-[17px] font-semibold leading-snug tracking-[-0.01em] text-foreground">
                   {solution.name}
                 </h2>
-                <p className="mt-1 text-[12.5px] font-medium text-primary">{solution.tagline}</p>
+                <p className="mt-1 text-[12.5px] font-medium text-pine">{solution.tagline}</p>
                 <p className="mt-3 flex-1 text-[13px] leading-6 text-muted-foreground">{solution.summary}</p>
-                <span className="mt-5 inline-flex items-center gap-1 text-[12.5px] font-semibold text-primary">
+                <span className="mt-5 inline-flex items-center gap-1 text-[12.5px] font-semibold text-pine">
                   Read the detail <ArrowUpRight className="size-3.5" />
                 </span>
               </Link>

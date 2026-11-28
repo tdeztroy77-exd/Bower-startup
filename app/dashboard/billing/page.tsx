@@ -193,10 +193,10 @@ export default async function BillingPage({
           className={
             isPastDue
               ? "flex flex-wrap items-center gap-3 rounded-2xl border border-warning/25 bg-warning/[0.06] px-4 py-3"
-              : "flex flex-wrap items-center gap-3 rounded-2xl border border-primary/15 bg-secondary/70 px-4 py-3"
+              : "flex flex-wrap items-center gap-3 rounded-2xl border border-pine/15 bg-secondary/70 px-4 py-3"
           }
         >
-          <Sparkles className={isPastDue ? "size-4 shrink-0 text-warning" : "size-4 shrink-0 text-primary"} />
+          <Sparkles className={isPastDue ? "size-4 shrink-0 text-warning" : "size-4 shrink-0 text-pine"} />
           <p className="min-w-0 flex-1 text-[13px] text-foreground">{describeEntitlement(entitlement)}</p>
           <Button asChild size="sm" variant={isPastDue ? "default" : "outline"} className="rounded-lg">
             <Link href={checkoutHref}>{isPastDue ? "Pay now" : "Add payment"}</Link>
@@ -283,10 +283,10 @@ export default async function BillingPage({
               <LifeBuoy className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
               <div className="text-[12px] leading-6 text-muted-foreground">
                 <p>Invoice, refund or procurement question?</p>
-                <a href={`mailto:${BRAND.supportEmail}`} className="mt-1 block font-medium text-foreground hover:text-primary">
+                <a href={`mailto:${BRAND.supportEmail}`} className="mt-1 block font-medium text-foreground hover:text-pine">
                   {BRAND.supportEmail}
                 </a>
-                <a href={BRAND.supportPhoneHref} className="block font-medium text-foreground hover:text-primary">
+                <a href={BRAND.supportPhoneHref} className="block font-medium text-foreground hover:text-pine">
                   {BRAND.supportPhone}
                 </a>
               </div>
@@ -322,7 +322,7 @@ export default async function BillingPage({
         <div className="mt-5 grid gap-x-6 gap-y-2 border-t border-border/70 pt-5 sm:grid-cols-2 lg:grid-cols-3">
           {plan.features.map((feature) => (
             <p key={feature} className="flex items-start gap-2 text-[12.5px] leading-5 text-muted-foreground">
-              <Check className="mt-0.5 size-3.5 shrink-0 text-primary" strokeWidth={2.6} />
+              <Check className="mt-0.5 size-3.5 shrink-0 text-pine" strokeWidth={2.6} />
               {feature}
             </p>
           ))}

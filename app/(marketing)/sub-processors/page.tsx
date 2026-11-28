@@ -49,7 +49,7 @@ export default function SubProcessorsPage() {
                         href={`https://${processor.policy}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[12px] font-medium text-primary hover:underline"
+                        className="text-[12px] font-medium text-pine hover:underline"
                       >
                         Policy
                       </a>

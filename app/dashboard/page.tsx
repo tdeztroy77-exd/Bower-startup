@@ -218,7 +218,7 @@ export default function DashboardPage() {
         title="Needs attention"
         description="What costs money or trust if it waits"
         action={
-          <Button asChild variant="ghost" size="sm" className="text-xs text-muted-foreground hover:text-primary">
+          <Button asChild variant="ghost" size="sm" className="text-xs text-muted-foreground hover:text-pine">
             <Link href="/dashboard/reports">
               Full analytics <ArrowUpRight className="size-3.5" />
             </Link>
@@ -271,7 +271,7 @@ export default function DashboardPage() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="flex items-center gap-3 rounded-xl border border-border/70 bg-background px-3 py-2.5 transition-colors hover:border-primary/30 hover:bg-secondary/30"
+                className="flex items-center gap-3 rounded-xl border border-border/70 bg-background px-3 py-2.5 transition-colors hover:border-pine/30 hover:bg-secondary/30"
               >
                 <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-muted/60">
                   <item.icon className={`size-4 ${item.tone}`} strokeWidth={1.9} />
@@ -296,7 +296,7 @@ export default function DashboardPage() {
           title="Cashflow"
           description={data ? `${data.periodLabel} · rent due against rent received` : "Current month"}
           action={
-            <Button asChild variant="ghost" size="sm" className="text-xs text-muted-foreground hover:text-primary">
+            <Button asChild variant="ghost" size="sm" className="text-xs text-muted-foreground hover:text-pine">
               <Link href="/dashboard/reports">
                 Full report <ArrowUpRight className="size-3.5" />
               </Link>
@@ -323,7 +323,7 @@ export default function DashboardPage() {
 
               <div className="h-2 overflow-hidden rounded-full bg-muted">
                 <div
-                  className="h-full rounded-full bg-primary transition-[width] duration-500"
+                  className="h-full rounded-full bg-pine transition-[width] duration-500"
                   style={{ width: `${Math.min(100, data.cashflow.collectRate)}%` }}
                 />
               </div>
@@ -373,11 +373,11 @@ export default function DashboardPage() {
             <Link
               key={tile.label}
               href={tile.href}
-              className="group flex flex-col justify-between rounded-2xl border border-border/80 bg-card p-4 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-primary/30"
+              className="group flex flex-col justify-between rounded-2xl border border-border/80 bg-card p-4 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-pine/30"
             >
               <span className="flex items-center justify-between">
                 <span className="text-[12px] font-medium text-muted-foreground">{tile.label}</span>
-                <tile.icon className="size-4 text-muted-foreground transition-colors group-hover:text-primary" strokeWidth={1.9} />
+                <tile.icon className="size-4 text-muted-foreground transition-colors group-hover:text-pine" strokeWidth={1.9} />
               </span>
               <span className="mt-3 text-[22px] font-semibold leading-none tracking-[-0.03em] tabular">
                 {loading ? "—" : tile.value}
@@ -571,7 +571,7 @@ export default function DashboardPage() {
           title="Service queue"
           description="Open maintenance by priority"
           action={
-            <Button asChild variant="ghost" size="sm" className="text-xs text-muted-foreground hover:text-primary">
+            <Button asChild variant="ghost" size="sm" className="text-xs text-muted-foreground hover:text-pine">
               <Link href="/dashboard/maintenance">
                 Open work orders <ArrowRight className="size-3.5" />
               </Link>

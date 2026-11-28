@@ -22,16 +22,16 @@ const categoryTone: Record<string, "danger" | "warning" | "success" | "info" | "
 
 function NoteCard({ note }: { note: any }) {
   return (
-    <article className="flex flex-col rounded-2xl border border-border/80 bg-card p-4 shadow-card transition-colors hover:border-primary/30">
+    <article className="flex flex-col rounded-2xl border border-border/80 bg-card p-4 shadow-card transition-colors hover:border-pine/30">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <h3 className="flex min-w-0 items-center gap-1.5 text-[14px] font-semibold leading-5 tracking-[-0.01em]">
             {note.is_pinned ? (
-              <Pin className="size-3.5 shrink-0 text-primary" strokeWidth={2.2} />
+              <Pin className="size-3.5 shrink-0 text-pine" strokeWidth={2.2} />
             ) : null}
             <Link
               href={`/dashboard/notes/${note.id}`}
-              className="truncate text-foreground transition-colors hover:text-primary"
+              className="truncate text-foreground transition-colors hover:text-pine"
             >
               {note.title || "Untitled note"}
             </Link>
@@ -160,7 +160,7 @@ export default async function NotesPage() {
       {pinnedNotes.length > 0 ? (
         <section className="space-y-3">
           <div className="flex items-center gap-2">
-            <Pin className="size-3.5 text-primary" strokeWidth={2.2} />
+            <Pin className="size-3.5 text-pine" strokeWidth={2.2} />
             <h2 className="text-[13px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
               Pinned
             </h2>

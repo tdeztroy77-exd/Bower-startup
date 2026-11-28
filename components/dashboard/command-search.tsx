@@ -80,7 +80,7 @@ export function CommandSearch() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group flex h-9 w-full max-w-[380px] items-center gap-2.5 rounded-xl border border-border/80 bg-card px-3 text-left text-[13px] text-muted-foreground shadow-card transition-colors hover:border-primary/30 hover:text-foreground"
+        className="group flex h-9 w-full max-w-[380px] items-center gap-2.5 rounded-xl border border-border/80 bg-card px-3 text-left text-[13px] text-muted-foreground shadow-card transition-colors hover:border-pine/30 hover:text-foreground"
       >
         <Search className="size-4 shrink-0" strokeWidth={2} />
         <span className="truncate">Search properties, tenants, pages…</span>

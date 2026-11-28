@@ -59,7 +59,7 @@ export default async function SignPage({ params }: { params: Promise<{ token: st
 
       <main className="mx-auto max-w-lg space-y-5 px-4 py-6">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-pine">
             {loaded.propertyName || "Tenancy document"}
           </p>
           <h1 className="mt-2 text-[26px] font-semibold leading-tight tracking-[-0.03em]">

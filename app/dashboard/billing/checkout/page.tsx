@@ -171,10 +171,10 @@ export default function CheckoutPage() {
 
           <div className="mt-5 space-y-2 border-t border-border/70 pt-4 text-[11.5px] text-muted-foreground">
             <p className="flex items-center gap-1.5">
-              <ShieldCheck className="size-3.5 text-primary" /> Card details never touch our servers
+              <ShieldCheck className="size-3.5 text-pine" /> Card details never touch our servers
             </p>
             <p className="flex items-center gap-1.5">
-              <Lock className="size-3.5 text-primary" /> M-Pesa PIN is entered on your phone
+              <Lock className="size-3.5 text-pine" /> M-Pesa PIN is entered on your phone
             </p>
           </div>
         </Panel>
@@ -193,7 +193,7 @@ export default function CheckoutPage() {
             </div>
           ) : busy ? (
             <div className="flex flex-col items-center py-8 text-center">
-              <Loader2 className="size-8 animate-spin text-primary" />
+              <Loader2 className="size-8 animate-spin text-pine" />
               <p className="mt-3 text-[14px] font-semibold text-foreground">
                 {stage === "pushing" ? "Sending the request…" : "Check your phone"}
               </p>

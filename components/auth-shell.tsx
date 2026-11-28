@@ -45,7 +45,7 @@ export function AuthShell({
             {children}
             <p className="mt-7 hidden text-center text-[12.5px] text-muted-foreground lg:block">
               {footerPrompt}{" "}
-              <Link href={footerHref} className="font-semibold text-foreground underline decoration-border underline-offset-4 hover:text-primary">
+              <Link href={footerHref} className="font-semibold text-foreground underline decoration-border underline-offset-4 hover:text-pine">
                 {footerLabel}
               </Link>
             </p>
@@ -59,17 +59,21 @@ export function AuthShell({
         </div>
       </main>
 
-      <aside className="relative hidden overflow-hidden border-l border-border bg-secondary/50 lg:flex lg:flex-col lg:justify-center lg:px-12 lg:py-14">
-        <div className="pointer-events-none absolute inset-0 dotted-grid opacity-40" aria-hidden="true" />
+      <aside className="brand-sweep relative hidden overflow-hidden border-l border-border lg:flex lg:flex-col lg:justify-center lg:px-12 lg:py-14">
+        <div className="brand-grain pointer-events-none absolute inset-0 opacity-[0.05]" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-0 dotted-grid opacity-[0.16]" aria-hidden="true" />
         <div className="relative mx-auto w-full max-w-[440px]">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">{eyebrow}</p>
-          <h1 className="mt-4 text-[32px] font-semibold leading-[1.08] tracking-[-0.035em] text-foreground">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-lime">{eyebrow}</p>
+          <h1 className="mt-4 text-[32px] font-semibold leading-[1.08] tracking-[-0.035em] text-brand-ink-foreground">
             {title}
           </h1>
-          <p className="mt-3 text-[13.5px] leading-6 text-muted-foreground">{body}</p>
+          <p className="mt-3 text-[13.5px] leading-6 text-brand-ink-muted">{body}</p>
 
           <div className="mt-8">
-            <DashboardPreview />
+            <div className="pointer-events-none absolute -inset-6 rounded-[36px] bg-brand-lime/18 blur-3xl" aria-hidden="true" />
+            <div className="relative">
+              <DashboardPreview />
+            </div>
           </div>
 
           <ul className="mt-7 space-y-2.5">
@@ -78,8 +82,8 @@ export function AuthShell({
               "M-Pesa payments reconciled against the paybill",
               "One flat monthly price, unlimited units",
             ].map((item) => (
-              <li key={item} className="flex items-start gap-2 text-[12.5px] leading-5 text-muted-foreground">
-                <span className="mt-0.5 grid size-4 shrink-0 place-items-center rounded-full bg-card text-primary">
+              <li key={item} className="flex items-start gap-2 text-[12.5px] leading-5 text-brand-ink-muted">
+                <span className="mt-0.5 grid size-4 shrink-0 place-items-center rounded-full bg-brand-lime/15 text-brand-lime">
                   <Check className="size-2.5" strokeWidth={3} />
                 </span>
                 {item}

@@ -39,7 +39,7 @@ export default async function RolePage({
           >
             <ArrowLeft className="size-4" /> All open roles
           </Link>
-          <p className="mt-8 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+          <p className="mt-8 text-[11px] font-semibold uppercase tracking-[0.14em] text-pine">
             {role.team} · {role.type}
           </p>
           <h1 className="mt-3 max-w-3xl text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] sm:text-[46px]">

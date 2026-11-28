@@ -70,7 +70,7 @@ export function ResetPasswordForm() {
     <Card className="w-full max-w-md">
       <CardHeader className="space-y-1">
         <div className="flex justify-center mb-2">
-          <KeyRound className="h-10 w-10 text-primary" />
+          <KeyRound className="h-10 w-10 text-pine" />
         </div>
         <CardTitle className="text-2xl font-bold text-center">Set a new password</CardTitle>
         <CardDescription className="text-center">

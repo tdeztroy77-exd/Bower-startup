@@ -79,7 +79,7 @@ export default function AboutPage() {
         <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-border/80 bg-border/70 sm:grid-cols-2">
           {principles.map((principle) => (
             <article key={principle.title} className="bg-card p-6 sm:p-7">
-              <principle.icon className="size-5 text-primary" strokeWidth={1.9} />
+              <principle.icon className="size-5 text-pine" strokeWidth={1.9} />
               <p className="mt-5 text-[10.5px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                 {principle.eyebrow}
               </p>
@@ -104,10 +104,10 @@ export default function AboutPage() {
               not by a feature checklist borrowed from another market.
             </p>
             <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[12.5px]">
-              <a href={`mailto:${BRAND.supportEmail}`} className="font-medium text-foreground hover:text-primary">
+              <a href={`mailto:${BRAND.supportEmail}`} className="font-medium text-foreground hover:text-pine">
                 {BRAND.supportEmail}
               </a>
-              <a href={BRAND.supportPhoneHref} className="font-medium text-foreground hover:text-primary">
+              <a href={BRAND.supportPhoneHref} className="font-medium text-foreground hover:text-pine">
                 {BRAND.supportPhone}
               </a>
             </div>

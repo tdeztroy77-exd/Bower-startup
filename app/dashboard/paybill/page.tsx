@@ -138,7 +138,7 @@ export default function PaybillPage() {
         <ol className="grid gap-3 lg:grid-cols-3">
           {steps.map((step) => (
             <li key={step.n} className="rounded-xl border border-border/70 bg-muted/30 p-4">
-              <span className="grid size-6 place-items-center rounded-full bg-secondary text-[11px] font-semibold text-primary">
+              <span className="grid size-6 place-items-center rounded-full bg-secondary text-[11px] font-semibold text-pine">
                 {step.n}
               </span>
               <p className="mt-2.5 text-[13.5px] font-semibold text-foreground">{step.title}</p>
@@ -219,7 +219,7 @@ export default function PaybillPage() {
                     <tr key={p.id}>
                       <td>
                         <div className="flex items-center gap-3">
-                          <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-secondary text-primary">
+                          <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-secondary text-pine">
                             <Wallet className="size-4" strokeWidth={1.9} />
                           </span>
                           <div className="min-w-0">

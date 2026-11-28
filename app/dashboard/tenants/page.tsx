@@ -186,7 +186,7 @@ export default function TenantsPage() {
                           <div className="min-w-0">
                             <Link
                               href={`/dashboard/tenants/${tenant.id}`}
-                              className="block truncate text-[13.5px] font-medium text-foreground hover:text-primary"
+                              className="block truncate text-[13.5px] font-medium text-foreground hover:text-pine"
                             >
                               {name}
                             </Link>
@@ -214,10 +214,10 @@ export default function TenantsPage() {
                       </td>
                       <td className="text-right">
                         <div className="flex items-center justify-end gap-1">
-                          <Button asChild variant="ghost" size="sm" className="h-8 rounded-lg text-xs text-muted-foreground hover:text-primary">
+                          <Button asChild variant="ghost" size="sm" className="h-8 rounded-lg text-xs text-muted-foreground hover:text-pine">
                             <Link href={`/dashboard/tenants/${tenant.id}`}>View</Link>
                           </Button>
-                          <Button asChild variant="ghost" size="sm" className="h-8 rounded-lg text-xs text-muted-foreground hover:text-primary">
+                          <Button asChild variant="ghost" size="sm" className="h-8 rounded-lg text-xs text-muted-foreground hover:text-pine">
                             <Link href={`/dashboard/tenants/${tenant.id}/edit`}>Edit</Link>
                           </Button>
                         </div>
