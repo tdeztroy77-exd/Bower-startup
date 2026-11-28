@@ -1,108 +1,107 @@
 "use server"
 
-import { createClient } from "@/lib/supabase/server"
+import { createClient, isSupabaseConfigured } from "@/lib/supabase/server"
+import { getSignupEmailRedirectTo } from "@/lib/supabase/redirects"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-/**
- * Sign in with email + password. The server-side Supabase client
- * (cookie-based) handles the session cookie transparently.
- */
-export async function signIn(_prevState: any, formData: FormData) {
-  if (!formData) {
-    return { error: "Form data is missing" }
+function safeNextPath(value: FormDataEntryValue | null) {
+  if (typeof value !== "string" || !value.startsWith("/") || value.startsWith("//")) {
+    return "/dashboard"
   }
-
-  const email = formData.get("email")
-  const password = formData.get("password")
-
-  if (!email || !password) {
-    return { error: "Email and password are required" }
+  if (/[\u0000-\u001f\u007f]/.test(value) || /^\/[a-z][a-z0-9+.-]*:/i.test(value)) {
+    return "/dashboard"
   }
+  return value
+}
+
+function signInErrorMessage(error: { code?: string; status?: number }) {
+  if (error.code === "email_not_confirmed") {
+    return "Please verify your email before signing in. Check your inbox for the confirmation link."
+  }
+  if (error.code === "invalid_credentials" || error.code === "invalid_grant") {
+    return "Invalid email or password."
+  }
+  if (error.code === "over_request_rate_limit" || error.status === 429) {
+    return "Too many sign-in attempts. Please wait a moment and try again."
+  }
+  return "We couldn’t sign you in right now. Please try again."
+}
+
+function signUpErrorMessage(error: { code?: string; status?: number }) {
+  if (error.code === "weak_password") return "Please choose a stronger password."
+  if (error.code === "email_address_invalid") return "Please enter a valid email address."
+  if (error.code === "email_address_not_authorized") {
+    return "We couldn’t send a confirmation email to that address. Please try another email or contact support."
+  }
+  if (error.code === "over_email_send_rate_limit" || error.status === 429) {
+    return "Too many confirmation emails were requested. Please wait a while before trying again."
+  }
+  if (error.code === "user_already_exists" || error.code === "email_exists") {
+    return "If you already have an account, sign in. Otherwise, check your inbox for a confirmation link."
+  }
+  return "We couldn’t create your account right now. Please try again."
+}
+
+/** Sign in and redirect only after Supabase has saved the session cookies. */
+export async function signIn(_prevState: unknown, formData: FormData) {
+  const email = String(formData.get("email") ?? "").trim().toLowerCase()
+  const password = String(formData.get("password") ?? "")
+
+  if (!email || !password) return { error: "Email and password are required." }
+  if (!isSupabaseConfigured) return { error: "Sign-in is temporarily unavailable. Please try again shortly." }
+
+  const destination = safeNextPath(formData.get("next"))
 
   try {
     const supabase = await createClient()
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: email.toString(),
-      password: password.toString(),
-    })
-
-    if (error) {
-      return { error: error.message }
-    }
-
+    if (error) return { error: signInErrorMessage(error) }
     if (data.user && !data.user.email_confirmed_at) {
-      // Email not verified — sign them back out so the middleware can
-      // redirect them to the verify-email page on the next request.
       await supabase.auth.signOut()
       return {
-        error:
-          "Please verify your email before signing in. Check your inbox for the verification link.",
+        error: "Please verify your email before signing in. Check your inbox for the confirmation link.",
       }
     }
-
-    return { success: true }
   } catch (error) {
-    console.error("Login error:", error)
-    return { error: "An unexpected error occurred. Please try again." }
+    console.error("[auth] Sign-in failed", error)
+    return { error: "We couldn’t sign you in right now. Please try again." }
   }
+
+  revalidatePath("/", "layout")
+  redirect(destination)
 }
 
-/**
- * Sign up with email + password. Email verification is required before
- * the user can access the dashboard.
- */
-export async function signUp(_prevState: any, formData: FormData) {
-  if (!formData) {
-    return { error: "Form data is missing" }
-  }
+/** Create an account and deliver its confirmation link through Supabase Auth. */
+export async function signUp(_prevState: unknown, formData: FormData) {
+  const email = String(formData.get("email") ?? "").trim().toLowerCase()
+  const password = String(formData.get("password") ?? "")
 
-  const email = formData.get("email")
-  const password = formData.get("password")
-
-  if (!email || !password) {
-    return { error: "Email and password are required" }
-  }
+  if (!email || !password) return { error: "Email and password are required." }
+  if (password.length < 6) return { error: "Password must be at least 6 characters." }
+  if (!isSupabaseConfigured) return { error: "Sign-up is temporarily unavailable. Please try again shortly." }
 
   try {
     const supabase = await createClient()
     const { error } = await supabase.auth.signUp({
-      email: email.toString(),
-      password: password.toString(),
-      options: {
-        emailRedirectTo: `${process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")}/auth/callback?next=%2Fdashboard`,
-      },
+      email,
+      password,
+      options: { emailRedirectTo: getSignupEmailRedirectTo() },
     })
 
     if (error) {
-      const message = error.message.toLowerCase()
-      if (message.includes("already registered") || message.includes("already exists")) {
-        return { error: "An account with that email already exists. Try signing in instead." }
-      }
-      if (message.includes("database error") || message.includes("saving new user")) {
-        return { error: "Sign-up is temporarily blocked by the database setup. Please run supabase-setup/00-signup-bootstrap.sql in Supabase SQL Editor." }
-      }
-      if (message.includes("rate limit") || message.includes("over_email_send_rate_limit") || (message.includes("email") && message.includes("rate"))) {
-        return {
-          error: "Too many confirmation emails were requested. Please wait a while before trying again, then check your inbox and spam folder.",
-        }
-      }
-      if (message.includes("email_address_not_authorized")) {
-        return {
-          error: "This Supabase project is currently limiting confirmation emails to approved addresses. Please use an approved test address or ask the deployment owner to configure email delivery.",
-        }
-      }
-      return { error: error.message }
+      console.error("[auth] Sign-up rejected", { code: error.code, status: error.status })
+      return { error: signUpErrorMessage(error) }
     }
 
     return {
       success: true,
-      message: "Check your email. Once you confirm, we’ll take you straight into your dashboard.",
+      message: "Check your inbox for a confirmation link. Confirm your email and we’ll take you straight to your dashboard.",
     }
   } catch (error) {
-    console.error("Sign up error:", error)
-    return { error: "An unexpected error occurred. Please try again." }
+    console.error("[auth] Sign-up failed", error)
+    return { error: "We couldn’t create your account right now. Please try again." }
   }
 }
 
