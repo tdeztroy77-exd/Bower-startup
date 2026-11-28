@@ -65,7 +65,7 @@ export function ContactForm() {
         <button
           type="button"
           onClick={() => setState({ status: "idle" })}
-          className="mt-4 text-[12.5px] font-semibold text-primary hover:underline"
+          className="mt-4 text-[12.5px] font-semibold text-pine hover:underline"
         >
           Write another message
         </button>

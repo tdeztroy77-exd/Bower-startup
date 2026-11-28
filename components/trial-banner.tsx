@@ -46,10 +46,10 @@ export function TrialBanner() {
       className={
         blocked
           ? "mb-5 flex flex-wrap items-center gap-3 rounded-xl border border-destructive/20 bg-destructive/[0.06] px-4 py-2.5 text-[13px]"
-          : "mb-5 flex flex-wrap items-center gap-3 rounded-xl border border-primary/15 bg-secondary/70 px-4 py-2.5 text-[13px]"
+          : "mb-5 flex flex-wrap items-center gap-3 rounded-xl border border-pine/15 bg-secondary/70 px-4 py-2.5 text-[13px]"
       }
     >
-      <Sparkles className={blocked ? "size-4 shrink-0 text-destructive" : "size-4 shrink-0 text-primary"} />
+      <Sparkles className={blocked ? "size-4 shrink-0 text-destructive" : "size-4 shrink-0 text-pine"} />
       <p className="min-w-0 flex-1 text-foreground">
         {blocked ? (
           <>

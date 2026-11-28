@@ -153,7 +153,7 @@ export default async function QuotationsPage() {
         description={`${quotations.length} ${quotations.length === 1 ? "quote" : "quotes"} across your properties`}
         bodyClassName="p-0"
         action={
-          <Button asChild variant="ghost" size="sm" className="text-xs text-muted-foreground hover:text-primary">
+          <Button asChild variant="ghost" size="sm" className="text-xs text-muted-foreground hover:text-pine">
             <Link href="/dashboard/maintenance">
               Maintenance <ArrowRight className="size-3.5" />
             </Link>

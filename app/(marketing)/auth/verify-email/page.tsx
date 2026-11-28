@@ -19,7 +19,7 @@ function VerifyEmailContent() {
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1 text-center">
           <div className="flex justify-center mb-4">
-            <span className="grid size-11 place-items-center rounded-2xl bg-secondary text-primary"><Mail className="size-5" /></span>
+            <span className="grid size-11 place-items-center rounded-2xl bg-secondary text-pine"><Mail className="size-5" /></span>
           </div>
           <CardTitle className="text-[22px] font-semibold tracking-[-0.02em]">Verify Your Email</CardTitle>
           <CardDescription>We sent a confirmation link to {email}</CardDescription>

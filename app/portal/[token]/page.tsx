@@ -39,7 +39,7 @@ export default async function TenantPortalPage({
             It may have expired after 30 days, or your landlord may have replaced it with a new one. Ask
             them to send a fresh link.
           </p>
-          <Link href="/" className="mt-5 inline-flex text-[12.5px] font-semibold text-primary hover:underline">
+          <Link href="/" className="mt-5 inline-flex text-[12.5px] font-semibold text-pine hover:underline">
             About Bower
           </Link>
         </div>
@@ -63,7 +63,7 @@ export default async function TenantPortalPage({
 
       <main className="mx-auto max-w-lg space-y-5 px-4 py-6">
         <section>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-pine">
             {data.owner.company}
           </p>
           <h1 className="mt-2 text-[26px] font-semibold leading-tight tracking-[-0.03em] text-foreground">

@@ -28,7 +28,7 @@ const rows: Array<{ label: string; values: [Value, Value, Value] }> = [
 ]
 
 function Cell({ value }: { value: Value }) {
-  if (value === "yes") return <Check className="mx-auto size-4 text-primary" strokeWidth={2.6} />
+  if (value === "yes") return <Check className="mx-auto size-4 text-pine" strokeWidth={2.6} />
   if (value === "no") return <Minus className="mx-auto size-4 text-muted-foreground/40" />
   return <span className="text-[12px] font-medium text-muted-foreground">{value}</span>
 }
@@ -62,7 +62,7 @@ export default function ComparePage() {
                     <th
                       key={column}
                       className={`px-5 py-3.5 text-center text-[10.5px] font-semibold uppercase tracking-[0.1em] ${
-                        column === "Bower" ? "text-primary" : "text-muted-foreground"
+                        column === "Bower" ? "text-pine" : "text-muted-foreground"
                       }`}
                     >
                       {column}
@@ -120,7 +120,7 @@ export default function ComparePage() {
             </p>
             <Link
               href="/roadmap"
-              className="mt-4 inline-flex items-center gap-1 text-[12.5px] font-semibold text-primary hover:underline"
+              className="mt-4 inline-flex items-center gap-1 text-[12.5px] font-semibold text-pine hover:underline"
             >
               See what is in development <ArrowUpRight className="size-3.5" />
             </Link>

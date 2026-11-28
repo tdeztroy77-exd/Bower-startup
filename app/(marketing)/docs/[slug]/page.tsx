@@ -63,7 +63,7 @@ export default async function DocArticlePage({
   return (
     <article className="py-14 lg:py-16">
       <div className="container-x max-w-3xl">
-        <Link href="/docs" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
+        <Link href="/docs" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-pine">
           <ArrowLeft className="size-4" /> Back to docs
         </Link>
         <p className="mt-8 text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">
@@ -87,11 +87,11 @@ export default async function DocArticlePage({
                 <li key={r.slug}>
                   <Link
                     href={`/docs/${r.slug}`}
-                    className="group flex flex-col rounded-2xl border border-border/80 bg-card p-5 shadow-card transition-colors hover:border-primary/30"
+                    className="group flex flex-col rounded-2xl border border-border/80 bg-card p-5 shadow-card transition-colors hover:border-pine/30"
                   >
                     <p className="text-sm font-medium leading-tight">{r.title}</p>
                     <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{r.excerpt}</p>
-                    <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-primary">
+                    <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-pine">
                       Read article <ArrowUpRight className="size-3" />
                     </span>
                   </Link>

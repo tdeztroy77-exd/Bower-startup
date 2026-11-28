@@ -38,7 +38,7 @@ export default function ContactSalesPage() {
               { title: "Procurement support", body: "DPA, invoice and security answers in writing if your process needs them." },
             ].map((item) => (
               <li key={item.title} className="flex gap-3">
-                <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-secondary text-primary">
+                <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-secondary text-pine">
                   <Check className="size-3" strokeWidth={2.8} />
                 </span>
                 <div>
@@ -50,18 +50,18 @@ export default function ContactSalesPage() {
           </ul>
           <div className="mt-7 rounded-2xl border border-border/80 bg-card p-4 shadow-card">
             <p className="flex items-center gap-2 text-[12.5px] font-semibold text-foreground">
-              <Mail className="size-3.5 text-primary" /> Prefer email?
+              <Mail className="size-3.5 text-pine" /> Prefer email?
             </p>
-            <a href={`mailto:${BRAND.supportEmail}`} className="mt-1 block text-[12px] text-muted-foreground hover:text-primary">
+            <a href={`mailto:${BRAND.supportEmail}`} className="mt-1 block text-[12px] text-muted-foreground hover:text-pine">
               {BRAND.supportEmail}
             </a>
-            <a href={BRAND.supportPhoneHref} className="block text-[12px] text-muted-foreground hover:text-primary">
+            <a href={BRAND.supportPhoneHref} className="block text-[12px] text-muted-foreground hover:text-pine">
               {BRAND.supportPhone}
             </a>
           </div>
           <p className="mt-5 flex items-center gap-1.5 text-[12px] text-muted-foreground">
             <Building2 className="size-3.5" /> Just want to try it?{" "}
-            <Link href="/auth/sign-up" className="font-semibold text-primary hover:underline">
+            <Link href="/auth/sign-up" className="font-semibold text-pine hover:underline">
               Start free
             </Link>
           </p>
@@ -77,7 +77,7 @@ export default function ContactSalesPage() {
       <section className="border-t border-border/70">
         <div className="container-x flex flex-col items-start justify-between gap-3 py-8 sm:flex-row sm:items-center">
           <p className="text-[13px] text-muted-foreground">Looking for product help instead?</p>
-          <Link href="/help" className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-primary hover:underline">
+          <Link href="/help" className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-pine hover:underline">
             Help centre <ArrowRight className="size-3.5" />
           </Link>
         </div>

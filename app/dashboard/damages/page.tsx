@@ -234,16 +234,16 @@ export default async function DamagesPage() {
             <Link
               key={template.name}
               href="/templates"
-              className="group flex flex-col rounded-xl border border-border/70 bg-card p-4 transition-colors hover:border-primary/30 hover:bg-secondary/30"
+              className="group flex flex-col rounded-xl border border-border/70 bg-card p-4 transition-colors hover:border-pine/30 hover:bg-secondary/30"
             >
-              <span className="grid size-8 place-items-center rounded-lg bg-secondary text-primary">
+              <span className="grid size-8 place-items-center rounded-lg bg-secondary text-pine">
                 <ShieldAlert className="size-4" strokeWidth={1.9} />
               </span>
               <span className="mt-3 text-[13px] font-medium text-foreground">{template.name}</span>
               <span className="mt-0.5 text-xs text-muted-foreground">
                 {template.items} check items
               </span>
-              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">
+              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-pine">
                 Use template <ArrowRight className="size-3" />
               </span>
             </Link>

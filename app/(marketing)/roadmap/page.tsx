@@ -64,7 +64,7 @@ export default function RoadmapPage() {
           {columns.map((column) => (
             <div key={column.key} className="rounded-2xl border border-border/80 bg-card p-5 shadow-card">
               <div className="flex items-center gap-2">
-                <span className="grid size-8 place-items-center rounded-lg bg-secondary text-primary">
+                <span className="grid size-8 place-items-center rounded-lg bg-secondary text-pine">
                   <column.icon className="size-4" />
                 </span>
                 <div>

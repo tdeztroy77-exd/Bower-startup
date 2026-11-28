@@ -94,7 +94,7 @@ export function LivePaybillFeed({ initial }: { initial?: C2BRow[] }) {
           <Radio
             className={cn(
               "size-4 shrink-0",
-              status === "open" && "animate-pulse text-primary",
+              status === "open" && "animate-pulse text-pine",
               status === "connecting" && "text-warning",
               status === "closed" && "text-muted-foreground",
             )}

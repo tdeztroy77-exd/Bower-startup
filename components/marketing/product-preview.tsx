@@ -52,7 +52,7 @@ function MiniSidebar() {
           key={index}
           className={cn(
             "grid size-6 place-items-center rounded-md",
-            item.active ? "bg-secondary text-primary" : "text-muted-foreground/60",
+            item.active ? "bg-secondary text-pine" : "text-muted-foreground/60",
           )}
         >
           <item.icon className="size-3" strokeWidth={2} />
@@ -137,7 +137,7 @@ export function DashboardPreview({ className }: { className?: string }) {
             </div>
             <div className="flex items-center gap-1">
               <span className="rounded-md border border-border px-2 py-1 text-[8.5px] text-muted-foreground">Search</span>
-              <span className="grid size-6 place-items-center rounded-full bg-secondary text-[8px] font-semibold text-primary">
+              <span className="grid size-6 place-items-center rounded-full bg-secondary text-[8px] font-semibold text-pine">
                 BK
               </span>
             </div>
@@ -150,7 +150,7 @@ export function DashboardPreview({ className }: { className?: string }) {
                 <p className="mt-1 truncate text-[11px] font-semibold tracking-[-0.02em] text-foreground tabular">
                   {kpi.value}
                 </p>
-                <p className="mt-0.5 text-[7.5px] font-medium text-primary">{kpi.trend}</p>
+                <p className="mt-0.5 text-[7.5px] font-medium text-pine">{kpi.trend}</p>
               </div>
             ))}
           </div>
@@ -219,7 +219,7 @@ export function DashboardPreview({ className }: { className?: string }) {
                 ["Grace N.", "Westlands Loft", "KES 35,000", false],
               ].map(([name, property, amount, paid]) => (
                 <div key={String(name)} className="flex items-center gap-2 border-t border-border/50 py-1 first:border-0">
-                  <span className="grid size-4 place-items-center rounded-full bg-secondary text-[6px] font-semibold text-primary">
+                  <span className="grid size-4 place-items-center rounded-full bg-secondary text-[6px] font-semibold text-pine">
                     {String(name).slice(0, 1)}
                   </span>
                   <span className="min-w-0 flex-1">
@@ -304,7 +304,7 @@ const priorityStyles: Record<string, string> = {
   Urgent: "bg-destructive/10 text-destructive",
   High: "bg-warning/10 text-warning",
   Medium: "bg-chart-3/10 text-chart-3",
-  Low: "bg-secondary text-primary",
+  Low: "bg-secondary text-pine",
 }
 
 export function MaintenancePreview({ className }: { className?: string }) {

@@ -55,15 +55,15 @@ export default function ContactSupportPage() {
             <Link
               key={route.title}
               href={route.href}
-              className="flex items-start gap-4 rounded-2xl border border-border/80 bg-card p-5 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-primary/30"
+              className="flex items-start gap-4 rounded-2xl border border-border/80 bg-card p-5 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-pine/30"
             >
-              <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-secondary text-primary">
+              <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-secondary text-pine">
                 <route.icon className="size-4" strokeWidth={1.9} />
               </span>
               <span className="min-w-0">
                 <span className="block text-[13.5px] font-semibold text-foreground">{route.title}</span>
                 <span className="mt-0.5 block text-[12px] leading-5 text-muted-foreground">{route.body}</span>
-                <span className="mt-2 block text-[12px] font-semibold text-primary">{route.cta} →</span>
+                <span className="mt-2 block text-[12px] font-semibold text-pine">{route.cta} →</span>
               </span>
             </Link>
           ))}

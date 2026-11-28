@@ -191,7 +191,7 @@ export default function MaintenanceDetailPage() {
               {maintenanceRequest.tenants?.phone ? (
                 <a
                   href={`tel:${maintenanceRequest.tenants.phone}`}
-                  className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
+                  className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-pine hover:underline"
                 >
                   <Phone className="size-3" />
                   {maintenanceRequest.tenants.phone}
@@ -219,7 +219,7 @@ export default function MaintenanceDetailPage() {
             <dl className="divide-y divide-border/70">
               {maintenanceRequest.estimated_cost ? (
                 <DetailRow label="Estimated cost">
-                  <span className="tabular text-primary">
+                  <span className="tabular text-pine">
                     {formatCurrency(maintenanceRequest.estimated_cost)}
                   </span>
                 </DetailRow>
@@ -235,7 +235,7 @@ export default function MaintenanceDetailPage() {
                   {maintenanceRequest.contractor_phone ? (
                     <a
                       href={`tel:${maintenanceRequest.contractor_phone}`}
-                      className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
+                      className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-pine hover:underline"
                     >
                       <Phone className="size-3" />
                       {maintenanceRequest.contractor_phone}

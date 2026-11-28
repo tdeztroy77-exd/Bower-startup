@@ -52,8 +52,8 @@ export default async function ResourcesPage({
               className={
                 "rounded-full border px-3.5 py-1.5 text-[12.5px] font-medium transition-colors " +
                 (index === 0
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border bg-card text-foreground hover:border-primary/40 hover:text-primary")
+                  ? "border-pine bg-primary text-primary-foreground"
+                  : "border-border bg-card text-foreground hover:border-pine/40 hover:text-pine")
               }
             >
               {category}
@@ -68,16 +68,16 @@ export default async function ResourcesPage({
         ) : hero ? (
           <Link
             href={`/resources/${hero.slug}`}
-            className="group mt-8 block rounded-3xl border border-border/80 bg-card p-6 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-primary/30 sm:p-8"
+            className="group mt-8 block rounded-3xl border border-border/80 bg-card p-6 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-pine/30 sm:p-8"
           >
-            <p className="text-[10.5px] font-semibold uppercase tracking-[0.12em] text-primary">
+            <p className="text-[10.5px] font-semibold uppercase tracking-[0.12em] text-pine">
               {hero.category} · {new Date(hero.publishedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })} · {hero.readingMinutes} min read
             </p>
             <h2 className="mt-3 max-w-3xl text-[26px] font-semibold leading-tight tracking-[-0.03em] text-foreground sm:text-[34px]">
               {hero.title}
             </h2>
             <p className="mt-3 max-w-2xl text-[13.5px] leading-7 text-muted-foreground">{hero.excerpt}</p>
-            <span className="mt-5 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-primary">
+            <span className="mt-5 inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-pine">
               Read the article <ArrowRight className="size-3.5" />
             </span>
           </Link>
@@ -88,7 +88,7 @@ export default async function ResourcesPage({
             <Link
               key={post.slug}
               href={`/resources/${post.slug}`}
-              className="group flex flex-col rounded-2xl border border-border/80 bg-card p-5 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-primary/30"
+              className="group flex flex-col rounded-2xl border border-border/80 bg-card p-5 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-pine/30"
             >
               <p className="text-[10.5px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 {post.category} · {post.readingMinutes} min read
@@ -97,7 +97,7 @@ export default async function ResourcesPage({
                 {post.title}
               </h3>
               <p className="mt-2 flex-1 text-[12.5px] leading-6 text-muted-foreground">{post.excerpt}</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold text-primary">
+              <span className="mt-4 inline-flex items-center gap-1 text-[12px] font-semibold text-pine">
                 Read more <ArrowRight className="size-3.5" />
               </span>
             </Link>
@@ -141,7 +141,7 @@ export default async function ResourcesPage({
       </Section>
 
       <Section>
-        <div className="grid gap-8 rounded-3xl border border-primary/15 bg-secondary p-6 sm:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div className="grid gap-8 rounded-3xl border border-pine/15 bg-secondary p-6 sm:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <p className="eyebrow text-secondary-foreground/60">Newsletter</p>
             <h2 className="mt-2 text-[26px] font-semibold tracking-[-0.025em] text-secondary-foreground sm:text-[30px]">

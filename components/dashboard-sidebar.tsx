@@ -11,6 +11,7 @@ import {
   BarChart3,
   Briefcase,
   Building2,
+  CalendarDays,
   ClipboardList,
   Contact,
   CreditCard,
@@ -34,7 +35,15 @@ import { signOut } from "@/lib/actions"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { BrandWordmark } from "@/components/brand-mark"
 
-type NavItem = { name: string; href: string; icon: React.ComponentType<{ className?: string; strokeWidth?: number }> }
+type NavChild = { name: string; href: string; icon: React.ComponentType<{ className?: string; strokeWidth?: number }> }
+
+type NavItem = {
+  name: string
+  href: string
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>
+  /** Sub-pages shown while the parent section is open. */
+  children?: NavChild[]
+}
 
 const navGroups: { label: string; items: NavItem[] }[] = [
   {
@@ -71,7 +80,14 @@ const navGroups: { label: string; items: NavItem[] }[] = [
   {
     label: "Organisation",
     items: [
-      { name: "Company", href: "/dashboard/company", icon: Briefcase },
+      {
+        name: "Company",
+        href: "/dashboard/company",
+        icon: Briefcase,
+        children: [
+          { name: "Calendar", href: "/dashboard/company/calendar", icon: CalendarDays },
+        ],
+      },
       { name: "Settings", href: "/dashboard/settings", icon: Settings },
     ],
   },
@@ -120,26 +136,65 @@ function SidebarContent({ userEmail, userName, companyName, onNavigate }: Sideba
               <div className="flex flex-col gap-0.5">
                 {group.items.map((item) => {
                   const active = isActiveRoute(pathname, item.href)
+                  const childActive = item.children?.some((child) =>
+                    isActiveRoute(pathname, child.href),
+                  )
                   return (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      onClick={onNavigate}
-                      aria-current={active ? "page" : undefined}
-                      className={cn(
-                        "group flex min-h-9 items-center gap-2.5 rounded-lg px-2.5 py-2 text-[13.5px] font-medium transition-colors duration-150",
-                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring/60",
-                        active
-                          ? "bg-sidebar-accent text-sidebar-accent-foreground"
-                          : "text-sidebar-foreground hover:bg-muted/70 hover:text-foreground",
-                      )}
-                    >
-                      <item.icon
-                        className={cn("size-[17px] shrink-0", active ? "text-primary" : "text-muted-foreground group-hover:text-foreground")}
-                        strokeWidth={1.9}
-                      />
-                      <span className="truncate">{item.name}</span>
-                    </Link>
+                    <div key={item.name}>
+                      <Link
+                        href={item.href}
+                        onClick={onNavigate}
+                        aria-current={active ? "page" : undefined}
+                        className={cn(
+                          "group relative flex min-h-9 items-center gap-2.5 rounded-lg px-2.5 py-2 text-[13.5px] font-medium transition-colors duration-150",
+                          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring/60",
+                          active
+                            ? "bg-sidebar-accent text-sidebar-accent-foreground before:absolute before:inset-y-1.5 before:left-0 before:w-[3px] before:rounded-full before:bg-brand-lime"
+                            : "text-sidebar-foreground hover:bg-muted/70 hover:text-foreground",
+                        )}
+                      >
+                        <item.icon
+                          className={cn("size-[17px] shrink-0", active ? "text-pine" : "text-muted-foreground group-hover:text-foreground")}
+                          strokeWidth={1.9}
+                        />
+                        <span className="truncate">{item.name}</span>
+                      </Link>
+
+                      {/* Sub-pages, only while the section is open. */}
+                      {item.children?.length && (active || childActive) ? (
+                        <div className="ml-[18px] mt-0.5 flex flex-col gap-0.5 border-l border-sidebar-border pl-2.5">
+                          {item.children.map((child) => {
+                            const childIsActive = isActiveRoute(pathname, child.href)
+                            return (
+                              <Link
+                                key={child.name}
+                                href={child.href}
+                                onClick={onNavigate}
+                                aria-current={childIsActive ? "page" : undefined}
+                                className={cn(
+                                  "relative flex min-h-8 items-center gap-2 rounded-lg px-2 py-1.5 text-[13px] font-medium transition-colors duration-150",
+                                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring/60",
+                                  childIsActive
+                                    ? "bg-sidebar-accent text-sidebar-accent-foreground before:absolute before:inset-y-1 before:left-0 before:w-[3px] before:rounded-full before:bg-brand-lime"
+                                    : "text-sidebar-foreground hover:bg-muted/70 hover:text-foreground",
+                                )}
+                              >
+                                <child.icon
+                                  className={cn(
+                                    "size-4 shrink-0",
+                                    childIsActive
+                                      ? "text-pine"
+                                      : "text-muted-foreground group-hover:text-foreground",
+                                  )}
+                                  strokeWidth={1.9}
+                                />
+                                <span className="truncate">{child.name}</span>
+                              </Link>
+                            )
+                          })}
+                        </div>
+                      ) : null}
+                    </div>
                   )
                 })}
               </div>
@@ -160,7 +215,7 @@ function SidebarContent({ userEmail, userName, companyName, onNavigate }: Sideba
 
         <div className="flex items-center gap-2.5 rounded-xl bg-muted/50 p-2.5">
           <Avatar className="size-8 shrink-0">
-            <AvatarFallback className="bg-secondary text-[11px] font-semibold text-primary">
+            <AvatarFallback className="bg-secondary text-[11px] font-semibold text-pine">
               {initials(userName, userEmail)}
             </AvatarFallback>
           </Avatar>

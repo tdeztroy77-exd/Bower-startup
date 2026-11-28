@@ -462,7 +462,7 @@ export function BackupManager({ initialBackups, appVersion }: { initialBackups: 
             <a
               key={t}
               href={`/api/backup/csv/${t}`}
-              className="flex items-center gap-2 rounded-lg border border-border/70 bg-background/60 px-2.5 py-2 text-[12px] text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
+              className="flex items-center gap-2 rounded-lg border border-border/70 bg-background/60 px-2.5 py-2 text-[12px] text-muted-foreground transition-colors hover:border-pine/30 hover:text-foreground"
               download
             >
               <FileText className="size-3.5 shrink-0" />

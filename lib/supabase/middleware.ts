@@ -62,6 +62,10 @@ export async function updateSession(request: NextRequest) {
     // The tenant portal is authenticated by its hashed, expiring token inside
     // each handler — not by a session cookie.
     pathname.startsWith("/api/portal/") ||
+    // Company invitations are redeemed with a hashed, single-use, expiring
+    // token that the route verifies itself — there is no session cookie to
+    // check, because the invitee has not signed up yet.
+    pathname === "/api/invitations/accept" ||
     pathname.startsWith("/api/sign/") ||
     pathname === "/api/mpesa/callback" ||
     // Safaricom posts the C2B validation and confirmation callbacks

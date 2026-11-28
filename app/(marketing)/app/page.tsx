@@ -55,7 +55,7 @@ export default function AppPage() {
               </Link>
               <Link
                 href="/help"
-                className="inline-flex h-10 items-center rounded-xl border border-border bg-card px-4 text-[13px] font-semibold text-foreground hover:border-primary/30 hover:text-primary"
+                className="inline-flex h-10 items-center rounded-xl border border-border bg-card px-4 text-[13px] font-semibold text-foreground hover:border-pine/30 hover:text-pine"
               >
                 Read the help centre
               </Link>
@@ -71,16 +71,16 @@ export default function AppPage() {
         <div className="grid gap-px overflow-hidden rounded-2xl border border-border/80 bg-border/70 sm:grid-cols-2">
           {facts.map((fact) => (
             <article key={fact.title} className="bg-card p-6">
-              <fact.icon className="size-[18px] text-primary" strokeWidth={1.9} />
+              <fact.icon className="size-[18px] text-pine" strokeWidth={1.9} />
               <h2 className="mt-4 text-[14.5px] font-semibold text-foreground">{fact.title}</h2>
               <p className="mt-1.5 text-[12.5px] leading-6 text-muted-foreground">{fact.body}</p>
             </article>
           ))}
         </div>
 
-        <div className="mt-6 rounded-2xl border border-primary/15 bg-secondary p-5">
+        <div className="mt-6 rounded-2xl border border-pine/15 bg-secondary p-5">
           <p className="flex items-center gap-2 text-[13px] font-semibold text-secondary-foreground">
-            <Check className="size-4 text-primary" strokeWidth={2.6} /> Adding it to your home screen
+            <Check className="size-4 text-pine" strokeWidth={2.6} /> Adding it to your home screen
           </p>
           <p className="mt-2 max-w-2xl text-[12.5px] leading-6 text-secondary-foreground/70">
             On Android Chrome, use the menu and choose “Add to Home screen”. On iOS Safari, use Share then

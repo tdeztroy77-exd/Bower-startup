@@ -46,12 +46,12 @@ export default function FeaturesHub() {
                 href={`/features/${feature.slug}`}
                 className="group flex flex-col bg-card p-5 transition-colors hover:bg-secondary/40"
               >
-                <span className="grid size-9 place-items-center rounded-xl bg-secondary text-primary">
+                <span className="grid size-9 place-items-center rounded-xl bg-secondary text-pine">
                   {Icon ? <Icon className="size-[17px]" strokeWidth={1.9} /> : null}
                 </span>
                 <p className="mt-4 text-[13.5px] font-semibold text-foreground">{feature.name}</p>
                 <p className="mt-1.5 flex-1 text-[12px] leading-5 text-muted-foreground">{feature.tagline}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-[11.5px] font-medium text-muted-foreground transition-colors group-hover:text-primary">
+                <span className="mt-4 inline-flex items-center gap-1 text-[11.5px] font-medium text-muted-foreground transition-colors group-hover:text-pine">
                   Read the detail <ArrowUpRight className="size-3" />
                 </span>
               </Link>

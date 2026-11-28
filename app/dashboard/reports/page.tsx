@@ -105,7 +105,7 @@ export default async function ReportsPage({
             <OwnerStatementButton />
             <Link
               href="/api/export?format=csv"
-              className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-border bg-card px-3 text-[12px] font-medium text-foreground hover:border-primary/30 hover:text-primary"
+              className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-border bg-card px-3 text-[12px] font-medium text-foreground hover:border-pine/30 hover:text-pine"
             >
               <Download className="size-3.5" /> Export
             </Link>
@@ -161,7 +161,7 @@ export default async function ReportsPage({
           title="Portfolio concentration"
           description="Outstanding rent by property, most exposed first"
           action={
-            <Link href="/dashboard/properties" className="text-[11.5px] font-medium text-muted-foreground hover:text-primary">
+            <Link href="/dashboard/properties" className="text-[11.5px] font-medium text-muted-foreground hover:text-pine">
               All properties
             </Link>
           }
@@ -203,7 +203,7 @@ export default async function ReportsPage({
           title="Tenants to call"
           description="Highest outstanding balance, oldest debt first"
           action={
-            <Link href="/dashboard/tenants" className="text-[11.5px] font-medium text-muted-foreground hover:text-primary">
+            <Link href="/dashboard/tenants" className="text-[11.5px] font-medium text-muted-foreground hover:text-pine">
               All tenants
             </Link>
           }
@@ -226,7 +226,7 @@ export default async function ReportsPage({
                   {analytics.tenantsAtRisk.map((tenant) => (
                     <tr key={tenant.id}>
                       <td className="max-w-[150px] truncate text-[12.5px] font-medium text-foreground">
-                        <Link href={`/dashboard/tenants/${tenant.id}`} className="hover:text-primary">
+                        <Link href={`/dashboard/tenants/${tenant.id}`} className="hover:text-pine">
                           {tenant.name}
                         </Link>
                       </td>
@@ -266,7 +266,7 @@ export default async function ReportsPage({
                 <span className="w-16 capitalize text-muted-foreground">{row.priority}</span>
                 <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-muted">
                   <div
-                    className="h-full rounded-full bg-primary"
+                    className="h-full rounded-full bg-pine"
                     style={{
                       width: `${analytics.maintenance.active > 0 ? Math.round((row.count / analytics.maintenance.active) * 100) : 0}%`,
                     }}
@@ -279,7 +279,7 @@ export default async function ReportsPage({
           <p className="mt-3 border-t border-border/70 pt-3 text-[11.5px] text-muted-foreground">
             Average age of an open request: <span className="font-semibold text-foreground">{analytics.maintenance.avgAgeDays} day{analytics.maintenance.avgAgeDays === 1 ? "" : "s"}</span>
           </p>
-          <Link href="/dashboard/maintenance" className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-primary hover:underline">
+          <Link href="/dashboard/maintenance" className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-pine hover:underline">
             Open the queue <ArrowUpRight className="size-3.5" />
           </Link>
         </Panel>
@@ -301,7 +301,7 @@ export default async function ReportsPage({
             Expiry and reminder scans run daily. Payment reconciliation waits for you in the queue — it is the one
             thing we will not guess at.
           </p>
-          <Link href="/dashboard/reconciliation" className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-primary hover:underline">
+          <Link href="/dashboard/reconciliation" className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-pine hover:underline">
             Review reconciliation <ArrowUpRight className="size-3.5" />
           </Link>
         </Panel>
@@ -316,7 +316,7 @@ export default async function ReportsPage({
             </p>
           </div>
           <div className="mt-3 h-2 overflow-hidden rounded-full bg-muted">
-            <div className="h-full rounded-full bg-primary" style={{ width: `${analytics.occupancy.rate}%` }} />
+            <div className="h-full rounded-full bg-pine" style={{ width: `${analytics.occupancy.rate}%` }} />
           </div>
           <ul className="mt-4 grid grid-cols-3 gap-2 text-center">
             {[
@@ -330,7 +330,7 @@ export default async function ReportsPage({
               </li>
             ))}
           </ul>
-          <Link href="/dashboard/properties" className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-primary hover:underline">
+          <Link href="/dashboard/properties" className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-pine hover:underline">
             Review properties <ArrowUpRight className="size-3.5" />
           </Link>
         </Panel>
@@ -342,7 +342,7 @@ export default async function ReportsPage({
           The numbers here are computed from live records. If something looks wrong, fix the record — the report
           follows automatically.
         </p>
-        <Link href="/api/export?format=json" className="text-[12px] font-semibold text-primary hover:underline">
+        <Link href="/api/export?format=json" className="text-[12px] font-semibold text-pine hover:underline">
           Export JSON
         </Link>
       </div>

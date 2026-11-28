@@ -407,7 +407,7 @@ export default async function SettingsPage() {
           href="https://www.linkedin.com/in/brian-kiarie-00b3a3391"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline-offset-2 hover:text-primary hover:underline"
+          className="underline-offset-2 hover:text-pine hover:underline"
         >
           Brian Kiarie
         </a>
@@ -416,7 +416,7 @@ export default async function SettingsPage() {
           href="https://github.com/Knighty7-ciper"
           target="_blank"
           rel="noopener noreferrer"
-          className="underline-offset-2 hover:text-primary hover:underline"
+          className="underline-offset-2 hover:text-pine hover:underline"
         >
           GitHub
         </a>

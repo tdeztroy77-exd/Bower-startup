@@ -24,7 +24,10 @@ export function createClient() {
 export const supabase = createClient()
 
 // ---- Dummy client used when env vars are missing during local dev ----
-function unavailableClient() {
+// Exported so a test can exercise the stand-in directly — this is the
+// object the app falls back to, and it has to stand in for the WHOLE
+// client surface, not just the parts that were convenient to stub.
+export function unavailableClient() {
   const unavailable = { message: "Supabase is not configured" }
   return {
     auth: {
@@ -51,5 +54,36 @@ function unavailableClient() {
         getPublicUrl: () => ({ data: { publicUrl: "" } }),
       }),
     },
+    channel: () => unavailableChannel(),
+    removeChannel: () => Promise.resolve("ok"),
   }
+}
+
+/**
+ * A Realtime channel that does nothing.
+ *
+ * Presence, the notification bell and the company calendar all open a
+ * channel on the browser client. Without this stub, a missing environment
+ * variable turned a non-essential feature into a page-crashing TypeError:
+ * `supabase.channel is not a function` was thrown inside a useEffect, the
+ * error boundary caught it, and the whole workspace was replaced with
+ * "Something went wrong" because the bell could not subscribe.
+ *
+ * A channel that never subscribes is the right answer here — the feature
+ * degrades to "no live updates", not to "no page".
+ */
+export function unavailableChannel(): any {
+  const channel: any = {
+    on: () => channel,
+    subscribe: (callback?: (status: string) => void) => {
+      callback?.("CHANNEL_ERROR")
+      return channel
+    },
+    unsubscribe: () => Promise.resolve("ok"),
+    track: () => Promise.resolve("ok"),
+    untrack: () => Promise.resolve("ok"),
+    presenceState: () => ({}),
+    send: () => Promise.resolve("ok"),
+  }
+  return channel
 }

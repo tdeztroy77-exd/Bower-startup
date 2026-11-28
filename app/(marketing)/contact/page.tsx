@@ -67,7 +67,7 @@ export default function ContactPage() {
           <ul className="mt-5 divide-y divide-border/70 border-y border-border/70">
             {channels.map((channel) => (
               <li key={channel.label} className="flex items-start gap-3.5 py-4">
-                <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-xl bg-secondary text-primary">
+                <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-xl bg-secondary text-pine">
                   <channel.icon className="size-4" strokeWidth={1.9} />
                 </span>
                 <div className="min-w-0">
@@ -75,7 +75,7 @@ export default function ContactPage() {
                     {channel.label}
                   </p>
                   {channel.href ? (
-                    <Link href={channel.href} className="mt-1 block text-[13.5px] font-semibold text-foreground hover:text-primary">
+                    <Link href={channel.href} className="mt-1 block text-[13.5px] font-semibold text-foreground hover:text-pine">
                       {channel.value}
                     </Link>
                   ) : (
@@ -92,7 +92,7 @@ export default function ContactPage() {
             <p className="mt-1.5 text-[12px] leading-6 text-secondary-foreground/70">
               Start a trial and explore the product on your own portfolio. No card required.
             </p>
-            <Link href="/auth/sign-up" className="mt-3 inline-flex text-[12.5px] font-semibold text-primary hover:underline">
+            <Link href="/auth/sign-up" className="mt-3 inline-flex text-[12.5px] font-semibold text-pine hover:underline">
               Start free →
             </Link>
           </div>

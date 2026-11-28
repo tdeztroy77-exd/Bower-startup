@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 }
 
 const legalLink =
-  "font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+  "font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-pine"
 
 const sections = [
   {
@@ -141,7 +141,7 @@ export default function TermsPage() {
                   <li key={section.id}>
                     <a
                       href={`#${section.id}`}
-                      className="-ml-px block border-l border-transparent pl-4 text-[12.5px] leading-5 text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
+                      className="-ml-px block border-l border-transparent pl-4 text-[12.5px] leading-5 text-muted-foreground transition-colors hover:border-pine hover:text-foreground"
                     >
                       {section.title}
                     </a>

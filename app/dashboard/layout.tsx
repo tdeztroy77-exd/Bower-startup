@@ -7,6 +7,7 @@ import { NotificationsBell } from "@/components/notifications-bell"
 import { PwaInstallPrompt } from "@/components/pwa-install-prompt"
 import { TrialBanner } from "@/components/trial-banner"
 import { CommandSearch } from "@/components/dashboard/command-search"
+import { ThemeToggle } from "@/components/dashboard/theme-toggle"
 import { UserMenu } from "@/components/dashboard/user-menu"
 import { createClient } from "@/lib/supabase/server"
 import { redirect } from "next/navigation"
@@ -116,6 +117,7 @@ export default async function DashboardLayout({
                   <LifeBuoy className="size-[18px]" />
                 </Link>
               </Button>
+              <ThemeToggle />
               <NotificationsBell />
               <div className="mx-1.5 hidden h-6 w-px bg-border sm:block" />
               <UserMenu

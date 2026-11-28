@@ -124,7 +124,7 @@ export default function NoteDetailPage() {
                 {note.properties ? (
                   <Link
                     href={`/dashboard/properties/${note.properties.id}`}
-                    className="inline-flex items-center gap-1.5 font-medium text-foreground hover:text-primary"
+                    className="inline-flex items-center gap-1.5 font-medium text-foreground hover:text-pine"
                   >
                     <MapPin className="size-3.5 text-muted-foreground" />
                     {note.properties.name}

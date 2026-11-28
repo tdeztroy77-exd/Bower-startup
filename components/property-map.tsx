@@ -105,7 +105,7 @@ export function PropertyMap({ properties, height = 520 }: { properties: MapPrope
                 <p className="font-semibold">{property.name}</p>
                 <p className="text-muted-foreground">{property.address}{property.city ? `, ${property.city}` : ""}</p>
                 <p className="capitalize">{property.status ?? "unknown"}{property.rent_amount != null ? ` · KES ${property.rent_amount.toLocaleString()}/mo` : ""}</p>
-                <Link href={`/dashboard/properties/${property.id}`} className="inline-flex items-center gap-1 font-medium text-primary hover:underline"><Home className="size-3.5" /> Open property</Link>
+                <Link href={`/dashboard/properties/${property.id}`} className="inline-flex items-center gap-1 font-medium text-pine hover:underline"><Home className="size-3.5" /> Open property</Link>
               </div>
             </Popup>
           </Marker>

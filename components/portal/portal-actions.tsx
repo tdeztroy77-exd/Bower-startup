@@ -177,7 +177,7 @@ export function PortalActions({ token, invoices }: { token: string; invoices: In
           className="flex w-full items-center justify-between gap-2 text-left"
         >
           <span className="inline-flex items-center gap-2 text-[13px] font-semibold text-foreground">
-            <Wrench className="size-4 text-primary" /> Report a repair
+            <Wrench className="size-4 text-pine" /> Report a repair
           </span>
           <span className="text-[12px] text-muted-foreground">{maintenanceOpen ? "Close" : "Open"}</span>
         </button>

@@ -147,7 +147,7 @@ export default function PropertyPage() {
             ) : null}
             {rent ? (
               <Field label="Monthly rent">
-                <span className="tabular text-primary">{formatCurrency(rent)}</span>
+                <span className="tabular text-pine">{formatCurrency(rent)}</span>
               </Field>
             ) : null}
             {property.deposit_amount ? (

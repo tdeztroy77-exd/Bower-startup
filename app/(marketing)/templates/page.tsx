@@ -57,8 +57,8 @@ export default async function TemplatesPage({
             className={
               "rounded-full border px-3.5 py-1.5 text-[12.5px] font-medium transition-colors " +
               (!active
-                ? "border-primary bg-primary text-primary-foreground"
-                : "border-border bg-card text-foreground hover:border-primary/40 hover:text-primary")
+                ? "border-pine bg-primary text-primary-foreground"
+                : "border-border bg-card text-foreground hover:border-pine/40 hover:text-pine")
             }
           >
             All ({all.length})
@@ -72,8 +72,8 @@ export default async function TemplatesPage({
                 className={
                   "rounded-full border px-3.5 py-1.5 text-[12.5px] font-medium transition-colors " +
                   (active === category
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border bg-card text-foreground hover:border-primary/40 hover:text-primary")
+                    ? "border-pine bg-primary text-primary-foreground"
+                    : "border-border bg-card text-foreground hover:border-pine/40 hover:text-pine")
                 }
               >
                 {category} ({count})
@@ -89,7 +89,7 @@ export default async function TemplatesPage({
               className="flex flex-col rounded-2xl border border-border/80 bg-card p-5 shadow-card"
             >
               <div className="flex items-start justify-between gap-2">
-                <span className="grid size-9 place-items-center rounded-xl bg-secondary text-primary">
+                <span className="grid size-9 place-items-center rounded-xl bg-secondary text-pine">
                   <FileText className="size-4" strokeWidth={1.9} />
                 </span>
                 <span className="rounded-full bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
@@ -105,7 +105,7 @@ export default async function TemplatesPage({
                 <a
                   href={`/templates/preview/${template.id}.docx`}
                   download
-                  className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-primary hover:underline"
+                  className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-pine hover:underline"
                 >
                   <Download className="size-3.5" /> Blank form
                 </a>
@@ -124,7 +124,7 @@ export default async function TemplatesPage({
                 key={csv.href}
                 href={csv.href}
                 download
-                className="flex items-start justify-between gap-3 rounded-xl border border-border/70 bg-card px-3.5 py-3 transition-colors hover:border-primary/30"
+                className="flex items-start justify-between gap-3 rounded-xl border border-border/70 bg-card px-3.5 py-3 transition-colors hover:border-pine/30"
               >
                 <span>
                   <span className="block text-[12.5px] font-semibold text-foreground">{csv.name}</span>
@@ -144,7 +144,7 @@ export default async function TemplatesPage({
       </Section>
 
       <Section muted bordered>
-        <div className="flex flex-col gap-4 rounded-3xl border border-primary/15 bg-secondary p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+        <div className="flex flex-col gap-4 rounded-3xl border border-pine/15 bg-secondary p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
           <div>
             <h2 className="text-[22px] font-semibold tracking-[-0.02em] text-secondary-foreground">
               Generate from the record instead

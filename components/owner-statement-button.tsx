@@ -24,7 +24,7 @@ export function OwnerStatementButton() {
       />
       <a
         href={`/api/reports/owner-statement?month=${month}`}
-        className="inline-flex items-center gap-1 rounded-md px-1.5 py-1 text-[11.5px] font-medium text-foreground hover:text-primary"
+        className="inline-flex items-center gap-1 rounded-md px-1.5 py-1 text-[11.5px] font-medium text-foreground hover:text-pine"
       >
         <Download className="size-3.5" /> PDF
       </a>

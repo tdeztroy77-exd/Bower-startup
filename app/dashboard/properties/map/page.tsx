@@ -180,7 +180,7 @@ export default async function PropertiesMapPage({ searchParams }: { searchParams
             </div>
           </dl>
           <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-muted">
-            <div className="h-full rounded-full bg-primary" style={{ width: `${Math.min(100, coverage)}%` }} />
+            <div className="h-full rounded-full bg-pine" style={{ width: `${Math.min(100, coverage)}%` }} />
           </div>
         </Panel>
       </div>

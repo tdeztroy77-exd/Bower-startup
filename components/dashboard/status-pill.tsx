@@ -8,7 +8,7 @@ const tones: Record<Tone, string> = {
   danger: "bg-destructive/10 text-destructive ring-destructive/15",
   info: "bg-info/10 text-info ring-info/15",
   neutral: "bg-muted text-muted-foreground ring-border",
-  brand: "bg-secondary text-secondary-foreground ring-primary/15",
+  brand: "bg-secondary text-secondary-foreground ring-pine/15",
 }
 
 /**

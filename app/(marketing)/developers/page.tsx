@@ -55,7 +55,7 @@ export default function DevelopersPage() {
             </Link>
             <Link
               href="/roadmap"
-              className="inline-flex h-10 items-center rounded-xl border border-border bg-card px-4 text-[13px] font-semibold text-foreground hover:border-primary/30 hover:text-primary"
+              className="inline-flex h-10 items-center rounded-xl border border-border bg-card px-4 text-[13px] font-semibold text-foreground hover:border-pine/30 hover:text-pine"
             >
               See the roadmap
             </Link>
@@ -71,7 +71,7 @@ export default function DevelopersPage() {
         <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-border/80 bg-border/70 sm:grid-cols-2">
           {planned.map((item) => (
             <article key={item.title} className="bg-card p-6">
-              <item.icon className="size-[18px] text-primary" strokeWidth={1.9} />
+              <item.icon className="size-[18px] text-pine" strokeWidth={1.9} />
               <h3 className="mt-4 text-[14.5px] font-semibold text-foreground">{item.title}</h3>
               <p className="mt-1.5 text-[12.5px] leading-6 text-muted-foreground">{item.body}</p>
             </article>
@@ -86,7 +86,7 @@ export default function DevelopersPage() {
             what it needs to read or write — that is how the first version of the API gets shaped.
           </p>
           <div className="mt-3 flex flex-wrap gap-4 text-[12.5px] font-semibold">
-            <Link href="/docs/bulk-import" className="text-primary hover:underline">CSV import guide</Link>
+            <Link href="/docs/bulk-import" className="text-pine hover:underline">CSV import guide</Link>
             <Link href="/integrations" className="text-foreground hover:underline">Current integrations</Link>
             <Link href="/contact" className="text-foreground hover:underline">Talk to the team</Link>
           </div>

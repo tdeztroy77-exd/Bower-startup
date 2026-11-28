@@ -56,7 +56,7 @@ export default function CustomersPage() {
           </div>
 
           <div className="rounded-3xl border border-border/80 bg-card p-6 shadow-card sm:p-8">
-            <span className="grid size-10 place-items-center rounded-xl bg-secondary text-primary">
+            <span className="grid size-10 place-items-center rounded-xl bg-secondary text-pine">
               <Quote className="size-[18px]" />
             </span>
             <p className="mt-5 text-[15px] leading-7 text-foreground">

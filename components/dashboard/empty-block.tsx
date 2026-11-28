@@ -36,7 +36,7 @@ export function EmptyBlock({
       {actionHref && actionLabel ? (
         <Link
           href={actionHref}
-          className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-primary hover:underline"
+          className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-pine hover:underline"
         >
           {actionLabel}
           <ArrowRight className="size-3.5" />

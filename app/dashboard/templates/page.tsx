@@ -178,8 +178,8 @@ export default function TemplatesPage() {
               onClick={() => { setSelectedId(t.id); setFields({}); setPreview(null); setSuccess(null); setError(null) }}
               className={`rounded-2xl border p-4 text-left shadow-card transition-[border-color,transform] hover:-translate-y-0.5 ${
                 selectedId === t.id
-                  ? "border-primary/40 bg-secondary/40"
-                  : "border-border/80 bg-card hover:border-primary/30"
+                  ? "border-pine/40 bg-secondary/40"
+                  : "border-border/80 bg-card hover:border-pine/30"
               }`}
             >
               <div className="flex items-start justify-between gap-2">

@@ -73,7 +73,7 @@ export default async function BlogArticlePage({
             <ArrowLeft className="size-3.5" /> Resources
           </Link>
           <p className="mt-6 flex flex-wrap items-center gap-2 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-            <span className="text-primary">{post.category}</span>
+            <span className="text-pine">{post.category}</span>
             <span aria-hidden>·</span>
             <span>
               {new Date(post.publishedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
@@ -86,7 +86,7 @@ export default async function BlogArticlePage({
           </h1>
           <p className="mt-4 text-[15px] leading-7 text-muted-foreground">{post.excerpt}</p>
           <div className="mt-6 flex items-center gap-3">
-            <span className="grid size-9 place-items-center rounded-full bg-secondary text-[11px] font-semibold text-primary">
+            <span className="grid size-9 place-items-center rounded-full bg-secondary text-[11px] font-semibold text-pine">
               {post.author.initials}
             </span>
             <div>
@@ -127,14 +127,14 @@ export default async function BlogArticlePage({
                 <Link
                   key={item.slug}
                   href={`/resources/${item.slug}`}
-                  className="group rounded-2xl border border-border/80 bg-card p-5 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-primary/30"
+                  className="group rounded-2xl border border-border/80 bg-card p-5 shadow-card transition-[border-color,transform] hover:-translate-y-0.5 hover:border-pine/30"
                 >
                   <p className="text-[10.5px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                     {item.category} · {item.readingMinutes} min read
                   </p>
                   <h2 className="mt-2 text-[14.5px] font-semibold leading-snug text-foreground">{item.title}</h2>
                   <p className="mt-1.5 line-clamp-2 text-[12px] leading-5 text-muted-foreground">{item.excerpt}</p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-primary">
+                  <span className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-pine">
                     Read <ArrowUpRight className="size-3.5" />
                   </span>
                 </Link>

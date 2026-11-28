@@ -4,44 +4,67 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Bower — design tokens.
+ * Bower — design tokens. "Nocturne".
  *
- * The palette is built around one confident signal colour (emerald) on a
- * near-white canvas, with cool mineral neutrals. Emerald is reserved for
- * money-positive states, primary actions and the active navigation item;
- * destructive red and amber are used sparingly so a screen full of cards
- * still reads calmly. Every surface is white, every border is a hairline,
- * and depth comes from a single soft shadow — not from heavy chrome.
+ * Three brand colours and one canvas:
+ *
+ *   PINE INK  #07231C   the structural colour. Dark surfaces, the band,
+ *                        the footer, the hero panel — the anchor that
+ *                        stops a cream workspace reading as generic.
+ *   LIME      #D8F25C   the loud one. The primary action, the active
+ *                        navigation marker, the focus ring, the number
+ *                        that matters. Used sparingly, or it stops being
+ *                        a signal.
+ *   MINT      #1FC78A   the live one. Presence, "someone is here right
+ *                        now", healthy states.
+ *
+ * The canvas stays warm cream (#F4F3EC) and the type stays editorial
+ * (Fraunces for display, a neutral sans for the interface). That pairing
+ * — warm paper, cool ink, one electric accent — is the whole identity.
+ *
+ * `primary` is LIME because it is the action colour and it is always
+ * paired with `primary-foreground` (pine ink), which keeps the label
+ * legible. `pine` is the brand colour for text, icons and outlines,
+ * where lime would be unreadable.
  */
 :root {
-  --background: #f7f4ec;
-  --foreground: #151b17;
+  --background: #f4f3ec;
+  --foreground: #0b1210;
 
   --card: #ffffff;
-  --card-foreground: #151b17;
+  --card-foreground: #0b1210;
 
   --popover: #ffffff;
-  --popover-foreground: #151b17;
+  --popover-foreground: #0b1210;
 
-  /* Bower forest: actions, money-positive states, active navigation. */
-  --primary: #17624a;
-  --primary-foreground: #fdfbf5;
+  /* LIME — the action colour. Always paired with pine ink. */
+  --primary: #d8f25c;
+  --primary-foreground: #07231c;
+
+  /* PINE — the brand colour for text, icons, rules and outlines. */
+  --pine: #0e4a37;
+  --pine-foreground: #f1f8f4;
+
+  /* The loud accent, named for the places it is used as a surface
+     rather than as a text colour. */
+  --brand-lime: #d8f25c;
+  --brand-lime-soft: #edf6c2;
 
   /* Sage surface for icon tiles and selected states. */
-  --secondary: #e9f0e9;
-  --secondary-foreground: #1c4a39;
+  --secondary: #e9ede4;
+  --secondary-foreground: #16382b;
 
-  --muted: #efebe1;
-  --muted-foreground: #69736c;
+  --muted: #edebe1;
+  --muted-foreground: #6b736c;
 
-  /* Clay: the one warm accent, used sparingly. */
-  --accent: #f2e6d7;
-  --accent-foreground: #6d4327;
+  /* Lime wash for hovered icon tiles. */
+  --accent: #edf6c2;
+  --accent-foreground: #34430d;
 
-  --destructive: #b0443b;
+  --destructive: #b3382e;
   --destructive-foreground: #ffffff;
 
-  --success: #2c7a57;
+  --success: #17855c;
   --success-foreground: #ffffff;
 
   --warning: #a86a1d;
@@ -50,60 +73,87 @@
   --info: #3f6e8c;
   --info-foreground: #ffffff;
 
-  --clay: #b5764a;
+  /* Clay: the warm note in the wordmark's full stop. */
+  --clay: #c0874f;
 
-  --border: #e2dccf;
+  /* Violet: the company-directory hue for admin/holiday chips. */
+  --violet: #6d4ba3;
+  --violet-foreground: #ffffff;
+
+  /* Brand ink — the deep structural surface. Pine, near-black, used
+     where a product needs an anchor: the company band, the invitation
+     email header, the footer. It is the one place the palette goes
+     dark, and it is what stops a warm cream workspace from reading as
+     a generic admin panel. */
+  --brand-ink: #07231c;
+  --brand-ink-soft: #0c3329;
+  --brand-ink-foreground: #ecf3f0;
+  --brand-ink-muted: #8fafa5;
+
+  /* MINT — the signal hue for live presence and activity states. */
+  --live: #1fc78a;
+  --live-foreground: #04231a;
+
+  --border: #e0dccc;
   --input: #ffffff;
-  --ring: #17624a;
+  --ring: #0e4a37;
 
-  --chart-1: #17624a;
-  --chart-2: #d9a36a;
-  --chart-3: #7c9a8a;
-  --chart-4: #c08552;
-  --chart-5: #8b5e4a;
+  --chart-1: #0e4a37;
+  --chart-2: #1fc78a;
+  --chart-3: #c0874f;
+  --chart-4: #6d4ba3;
+  --chart-5: #3f6e8c;
 
   --radius: 0.75rem;
 
   --sidebar: #ffffff;
-  --sidebar-foreground: #4e5a52;
-  --sidebar-primary: #17624a;
-  --sidebar-primary-foreground: #fdfbf5;
-  --sidebar-accent: #e9f0e9;
-  --sidebar-accent-foreground: #1c4a39;
-  --sidebar-border: #ece7db;
-  --sidebar-ring: #17624a;
+  --sidebar-foreground: #46544c;
+  --sidebar-primary: #0e4a37;
+  --sidebar-primary-foreground: #f1f8f4;
+  --sidebar-accent: #edf6c2;
+  --sidebar-accent-foreground: #16382b;
+  --sidebar-border: #eae6da;
+  --sidebar-ring: #0e4a37;
 
-  --shadow-card: 0 1px 2px rgba(28, 35, 29, 0.04), 0 8px 24px -20px rgba(28, 35, 29, 0.24);
-  --shadow-lift: 0 2px 4px rgba(28, 35, 29, 0.05), 0 18px 40px -28px rgba(28, 35, 29, 0.38);
+  --shadow-card: 0 1px 2px rgba(7, 35, 28, 0.05), 0 8px 24px -20px rgba(7, 35, 28, 0.26);
+  --shadow-lift: 0 2px 4px rgba(7, 35, 28, 0.06), 0 18px 40px -26px rgba(7, 35, 28, 0.4);
 }
 
 .dark {
-  --background: #101512;
-  --foreground: #edf1ea;
+  --background: #0c1310;
+  --foreground: #e8ede9;
 
-  --card: #171d18;
-  --card-foreground: #edf1ea;
+  --card: #141c18;
+  --card-foreground: #e8ede9;
 
-  --popover: #171d18;
-  --popover-foreground: #edf1ea;
+  --popover: #141c18;
+  --popover-foreground: #e8ede9;
 
-  --primary: #7fc3a4;
-  --primary-foreground: #0b2a1e;
+  /* LIME reads even louder against pine ink. */
+  --primary: #d8f25c;
+  --primary-foreground: #07231c;
 
-  --secondary: #1c2a22;
+  /* Light pine for text and icons on a dark canvas. */
+  --pine: #7fd3ac;
+  --pine-foreground: #04231a;
+
+  --brand-lime: #d8f25c;
+  --brand-lime-soft: #22301a;
+
+  --secondary: #1a2721;
   --secondary-foreground: #cbe4d5;
 
-  --muted: #1c241e;
-  --muted-foreground: #a2aea5;
+  --muted: #1a241e;
+  --muted-foreground: #9faba3;
 
-  --accent: #2a231b;
-  --accent-foreground: #ead7c0;
+  --accent: #22301a;
+  --accent-foreground: #dff08a;
 
   --destructive: #e07a70;
   --destructive-foreground: #2a0b08;
 
-  --success: #63c79b;
-  --success-foreground: #05231b;
+  --success: #3fc793;
+  --success-foreground: #04231a;
 
   --warning: #e0b36a;
   --warning-foreground: #2a1d00;
@@ -113,27 +163,38 @@
 
   --clay: #d9a36a;
 
-  --border: #2a332c;
-  --input: #16201a;
-  --ring: #7fc3a4;
+  --violet: #b79ce0;
+  --violet-foreground: #1b0f33;
 
-  --chart-1: #7fc3a4;
-  --chart-2: #d9a36a;
-  --chart-3: #9db8ab;
-  --chart-4: #c08552;
-  --chart-5: #d99a82;
+  --brand-ink: #050f0c;
+  --brand-ink-soft: #0a201a;
+  --brand-ink-foreground: #eaf2ee;
+  --brand-ink-muted: #7f9d92;
 
-  --sidebar: #131a15;
-  --sidebar-foreground: #b9c9c0;
-  --sidebar-primary: #7fc3a4;
-  --sidebar-primary-foreground: #0b2a1e;
-  --sidebar-accent: #1c2a22;
-  --sidebar-accent-foreground: #cbe4d5;
-  --sidebar-border: #243028;
-  --sidebar-ring: #7fc3a4;
+  --live: #34e0a1;
+  --live-foreground: #04231a;
 
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-lift: 0 18px 40px -28px rgba(0, 0, 0, 0.8);
+  --border: #263029;
+  --input: #101814;
+  --ring: #d8f25c;
+
+  --chart-1: #7fd3ac;
+  --chart-2: #34e0a1;
+  --chart-3: #d9a36a;
+  --chart-4: #b79ce0;
+  --chart-5: #86aec7;
+
+  --sidebar: #101814;
+  --sidebar-foreground: #b6c6bd;
+  --sidebar-primary: #d8f25c;
+  --sidebar-primary-foreground: #07231c;
+  --sidebar-accent: #22301a;
+  --sidebar-accent-foreground: #dff08a;
+  --sidebar-border: #222c26;
+  --sidebar-ring: #d8f25c;
+
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-lift: 0 18px 40px -26px rgba(0, 0, 0, 0.85);
 }
 
 @theme inline {
@@ -150,6 +211,10 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-pine: var(--pine);
+  --color-pine-foreground: var(--pine-foreground);
+  --color-brand-lime: var(--brand-lime);
+  --color-brand-lime-soft: var(--brand-lime-soft);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -165,6 +230,14 @@
   --color-info: var(--info);
   --color-info-foreground: var(--info-foreground);
   --color-clay: var(--clay);
+  --color-violet: var(--violet);
+  --color-violet-foreground: var(--violet-foreground);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-ink-soft: var(--brand-ink-soft);
+  --color-brand-ink-foreground: var(--brand-ink-foreground);
+  --color-brand-ink-muted: var(--brand-ink-muted);
+  --color-live: var(--live);
+  --color-live-foreground: var(--live-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -265,10 +338,11 @@
     @apply mx-auto w-full max-w-[1180px] px-5 sm:px-6 lg:px-8;
   }
 
-  /* Workspace surface: the off-white canvas behind dashboard cards. */
+  /* Workspace surface: the off-white canvas behind dashboard cards, with
+     a pine warmth in the corner so the canvas is not a dead flat sheet. */
   .workspace-surface {
     background:
-      radial-gradient(70rem 30rem at 105% -10%, color-mix(in srgb, var(--primary) 6%, transparent), transparent 60%),
+      radial-gradient(70rem 30rem at 105% -10%, color-mix(in srgb, var(--pine) 7%, transparent), transparent 60%),
       var(--background);
   }
 
@@ -317,6 +391,140 @@
 }
 
 @layer utilities {
+  /* ---- Motion primitives -------------------------------------------
+     A small, deliberate vocabulary instead of ad-hoc transitions.
+     Two easings do most of the work:
+       expo  — things that arrive and settle (panels, rows, sheets)
+       spring— things that respond to a person (badges, dots, toggles)
+     Both are exposed as utilities so a component can pick the behaviour
+     that matches the intent rather than the other way round. */
+
+  .ease-expo {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .ease-spring {
+    transition-timing-function: cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+
+  /* Named entrances, so components do not have to spell out long
+     arbitrary values and the timings stay consistent across the app. */
+  .anim-row-in {
+    animation: row-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .anim-bloom {
+    animation: presence-bloom 900ms cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  }
+
+  .anim-breathe {
+    animation: presence-breathe 2.8s ease-in-out infinite;
+  }
+
+  .anim-pop {
+    animation: pop 420ms cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  }
+
+  .anim-notify-in {
+    animation: notify-in 380ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .anim-shimmer {
+    background-image: linear-gradient(
+      100deg,
+      transparent 20%,
+      color-mix(in srgb, var(--foreground) 7%, transparent) 42%,
+      transparent 64%
+    );
+    background-size: 220% 100%;
+    animation: shimmer 1.6s linear infinite;
+  }
+
+  /* The company band: a deep pine surface with a light sweep across it.
+     Built from gradients rather than an image, so it is crisp at any
+     resolution, weighs nothing, and re-tints itself in dark mode. */
+  .brand-sweep {
+    background:
+      radial-gradient(120% 140% at 10% 0%, color-mix(in srgb, var(--brand-lime) 22%, transparent) 0%, transparent 56%),
+      radial-gradient(90% 120% at 88% 16%, color-mix(in srgb, var(--live) 26%, transparent) 0%, transparent 62%),
+      linear-gradient(135deg, var(--brand-ink) 0%, var(--brand-ink-soft) 58%, var(--brand-ink) 100%);
+  }
+
+  /* A lime band: the loudest surface in the system. One per page. */
+  .band-lime {
+    background:
+      radial-gradient(70rem 34rem at 82% 12%, color-mix(in srgb, #ffffff 42%, transparent) 0%, transparent 62%),
+      radial-gradient(50rem 28rem at 8% 92%, color-mix(in srgb, var(--live) 26%, transparent) 0%, transparent 58%),
+      linear-gradient(135deg, #e6f87f 0%, var(--brand-lime) 46%, #c9e63f 100%);
+    color: var(--brand-ink);
+  }
+
+  /* A mint band — the cooler sibling, used where the section is about
+     something arriving rather than about money. */
+  .band-mint {
+    background:
+      radial-gradient(64rem 30rem at 12% 8%, color-mix(in srgb, #ffffff 34%, transparent) 0%, transparent 60%),
+      linear-gradient(135deg, #d8f6e8 0%, #b9ecd6 52%, #a3e3ca 100%);
+    color: #06301f;
+  }
+
+  /* The marker swipe: a lime highlighter behind one word of a headline.
+     It is the one piece of pure decoration in the system, and it is
+     allowed exactly one use per page — on the word that matters. */
+  .marker-lime {
+    background-image: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--brand-lime) 85%, transparent) 0%,
+      color-mix(in srgb, var(--brand-lime) 85%, transparent) 30%,
+      transparent 30%
+    );
+    background-repeat: no-repeat;
+    padding-inline: 0.06em;
+  }
+
+  /* A fine grain over the ink so it does not read as flat vector. */
+  .brand-grain {
+    background-image: radial-gradient(
+      color-mix(in srgb, var(--brand-ink-foreground) 14%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 3px 3px;
+  }
+
+  /* A coloured rail down the side of a row — the quickest way to make a
+     list feel alive without adding another box. */
+  .rail-live {
+    background: linear-gradient(to bottom, var(--live), transparent);
+  }
+
+  /* The ambient colour field. The public site is warm cream by default;
+     this is the wash of saturated colour behind the hero so the first
+     screen reads as alive rather than as a static poster. The stops are
+     positioned so the blooms land inside the first screen rather than
+     above it. */
+  .field-color {
+    background:
+      radial-gradient(30rem 20rem at 82% 20%, color-mix(in srgb, var(--brand-lime) 52%, transparent) 0%, transparent 64%),
+      radial-gradient(26rem 18rem at 68% 66%, color-mix(in srgb, var(--live) 26%, transparent) 0%, transparent 60%),
+      radial-gradient(24rem 16rem at 4% 26%, color-mix(in srgb, var(--clay) 16%, transparent) 0%, transparent 56%);
+  }
+
+  /* The primary action: lime with a light source at the top left, so it
+     reads as a physical button rather than a flat block of colour. */
+  .btn-sheen {
+    background-image:
+      radial-gradient(120% 140% at 10% -12%, color-mix(in srgb, #ffffff 46%, transparent) 0%, transparent 54%),
+      linear-gradient(180deg, #e4f97e 0%, var(--brand-lime) 58%, #c3dd3c 100%);
+  }
+
+  /* Colour that reads as a light source rather than a border. */
+  .shadow-glow {
+    box-shadow: 0 10px 26px -12px color-mix(in srgb, var(--brand-lime) 72%, transparent);
+  }
+  .shadow-glow-strong {
+    box-shadow: 0 18px 40px -14px color-mix(in srgb, var(--brand-lime) 84%, transparent);
+  }
+
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
@@ -346,6 +554,91 @@
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* A person comes online: the dot blooms once, then breathes quietly. */
+@keyframes presence-bloom {
+  0% {
+    transform: scale(0.6);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--live) 55%, transparent);
+  }
+  60% {
+    transform: scale(1.18);
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--live) 0%, transparent);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@keyframes presence-breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+/* A badge or dot reacts to a change. */
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.28);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Rows arrive one after another. The delay is set per row. */
+@keyframes row-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* A notification that has just landed. */
+@keyframes notify-in {
+  from {
+    opacity: 0;
+    transform: translateX(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* A loading skeleton that reads as "working", not as "broken". */
+@keyframes shimmer {
+  from {
+    background-position: -160% 0;
+  }
+  to {
+    background-position: 260% 0;
+  }
+}
+
+/* The ambient field drifts. The cycle is long enough that the movement
+   reads as atmosphere rather than as an animation, and short enough
+   that a page left open does not feel like a still photograph. */
+@keyframes field-drift {
+  from {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(2%, 1.5%, 0) scale(1.06);
   }
 }
 

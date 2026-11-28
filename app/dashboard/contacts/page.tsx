@@ -200,7 +200,7 @@ export default function ContactsPage() {
                     </td>
                     <td className="hidden md:table-cell">
                       {contact.email ? (
-                        <a href={`mailto:${contact.email}`} className="text-[13px] text-muted-foreground hover:text-primary">
+                        <a href={`mailto:${contact.email}`} className="text-[13px] text-muted-foreground hover:text-pine">
                           {contact.email}
                         </a>
                       ) : (
@@ -209,7 +209,7 @@ export default function ContactsPage() {
                     </td>
                     <td className="hidden lg:table-cell">
                       {contact.phone ? (
-                        <a href={`tel:${contact.phone}`} className="text-[13px] tabular text-muted-foreground hover:text-primary">
+                        <a href={`tel:${contact.phone}`} className="text-[13px] tabular text-muted-foreground hover:text-pine">
                           {contact.phone}
                         </a>
                       ) : (

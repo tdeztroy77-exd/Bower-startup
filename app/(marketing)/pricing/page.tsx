@@ -77,7 +77,7 @@ export default function PricingPage() {
             <div className="mt-7 divide-y divide-border/70 border-t border-border/70">
               {plan.features.map((feature) => (
                 <div key={feature} className="flex items-center gap-3 py-3">
-                  <span className="grid size-4 shrink-0 place-items-center rounded-full bg-secondary text-primary">
+                  <span className="grid size-4 shrink-0 place-items-center rounded-full bg-secondary text-pine">
                     <Check className="size-2.5" strokeWidth={3} />
                   </span>
                   <span className="text-[13.5px] text-foreground">{feature}</span>
@@ -94,7 +94,7 @@ export default function PricingPage() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex h-11 items-center justify-center rounded-xl border border-border bg-card px-5 text-[13.5px] font-semibold text-foreground transition-colors hover:border-primary/30 hover:text-primary"
+                className="inline-flex h-11 items-center justify-center rounded-xl border border-border bg-card px-5 text-[13.5px] font-semibold text-foreground transition-colors hover:border-pine/30 hover:text-pine"
               >
                 Ask a question
               </Link>
@@ -121,7 +121,7 @@ export default function PricingPage() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-primary/15 bg-secondary p-6">
+            <div className="rounded-3xl border border-pine/15 bg-secondary p-6">
               <p className="text-[13px] font-semibold text-secondary-foreground">Need a purchase order or DPA?</p>
               <p className="mt-2 text-[12.5px] leading-6 text-secondary-foreground/70">
                 We can provide a data-processing agreement, invoice and security overview for procurement.
@@ -164,7 +164,7 @@ export default function PricingPage() {
             ].map(([size, bower, percentage]) => (
               <div key={size} className="grid grid-cols-3 items-center border-b border-border/60 px-5 py-3.5 text-[13px] last:border-0">
                 <span className="font-medium text-foreground">{size}</span>
-                <span className="text-center font-semibold tabular text-primary">{bower}</span>
+                <span className="text-center font-semibold tabular text-pine">{bower}</span>
                 <span className="text-right tabular text-muted-foreground line-through decoration-border">{percentage}</span>
               </div>
             ))}

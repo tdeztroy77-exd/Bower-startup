@@ -102,7 +102,7 @@ export default function HelpPage() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex h-10 items-center gap-2 rounded-xl border border-border bg-card px-4 text-[13px] font-semibold text-foreground hover:border-primary/30 hover:text-primary"
+              className="inline-flex h-10 items-center gap-2 rounded-xl border border-border bg-card px-4 text-[13px] font-semibold text-foreground hover:border-pine/30 hover:text-pine"
             >
               <MessageSquare className="size-4" /> Contact the team
             </Link>
@@ -128,7 +128,7 @@ export default function HelpPage() {
             </ul>
             <div className="mt-8 rounded-2xl border border-border/80 bg-card p-4 shadow-card">
               <p className="flex items-center gap-2 text-[12.5px] font-semibold text-foreground">
-                <LifeBuoy className="size-4 text-primary" /> Still stuck?
+                <LifeBuoy className="size-4 text-pine" /> Still stuck?
               </p>
               <p className="mt-1.5 text-[12px] leading-5 text-muted-foreground">
                 Email {BRAND.supportEmail} with the property or tenant name and we will look at the

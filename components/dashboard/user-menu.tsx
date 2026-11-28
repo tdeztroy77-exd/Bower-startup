@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import Link from "next/link"
 import { signOut } from "@/lib/actions"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
@@ -11,7 +12,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { ChevronDown, CreditCard, LifeBuoy, LogOut, Settings } from "lucide-react"
+import { ChevronDown, CreditCard, LifeBuoy, LogOut, Settings, UserRound } from "lucide-react"
+import { ProfileSheet } from "@/components/profile/profile-sheet"
 
 function initials(name?: string | null, email?: string | null): string {
   const src = (name || email || "").trim()
@@ -35,11 +37,14 @@ export function UserMenu({
   email?: string | null
   workspace?: string | null
 }) {
+  const [profileOpen, setProfileOpen] = React.useState(false)
+
   return (
+    <>
     <DropdownMenu>
       <DropdownMenuTrigger className="flex items-center gap-2.5 rounded-full py-1 pl-1 pr-2 outline-none transition-colors hover:bg-muted/70 focus-visible:ring-2 focus-visible:ring-ring">
         <Avatar className="size-8">
-          <AvatarFallback className="bg-secondary text-[11px] font-semibold text-primary">
+          <AvatarFallback className="bg-secondary text-[11px] font-semibold text-pine">
             {initials(name, email)}
           </AvatarFallback>
         </Avatar>
@@ -57,6 +62,10 @@ export function UserMenu({
           <p className="mt-0.5 truncate text-xs text-muted-foreground">{email}</p>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
+        <DropdownMenuItem onSelect={() => setProfileOpen(true)}>
+          <UserRound className="size-4" />
+          My profile
+        </DropdownMenuItem>
         <DropdownMenuItem asChild>
           <Link href="/dashboard/settings">
             <Settings className="size-4" />
@@ -87,5 +96,8 @@ export function UserMenu({
         </form>
       </DropdownMenuContent>
     </DropdownMenu>
+
+    <ProfileSheet open={profileOpen} onOpenChange={setProfileOpen} />
+    </>
   )
 }

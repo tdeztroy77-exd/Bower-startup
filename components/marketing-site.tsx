@@ -156,7 +156,7 @@ function NavDropdown({ group }: { group: NavGroup }) {
             </div>
             <div className="flex items-center justify-between gap-4 border-t border-border/70 bg-muted/25 px-4 py-2.5">
               <span className="text-[11px] text-muted-foreground">One workspace, from the first unit to the whole portfolio.</span>
-              <Link href={group.href} className="inline-flex items-center gap-1 text-[11.5px] font-semibold text-primary hover:underline">
+              <Link href={group.href} className="inline-flex items-center gap-1 text-[11.5px] font-semibold text-pine hover:underline">
                 Explore {group.label} <ArrowRight className="size-3" />
               </Link>
             </div>
@@ -205,11 +205,15 @@ export function MarketingHeader() {
         <div className="hidden items-center gap-1.5 lg:flex">
           <Link
             href="/auth/login"
-            className="rounded-lg px-3 py-2 text-[13px] font-medium text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
+            className="rounded-lg px-3 py-2 text-[13px] font-medium text-muted-foreground transition-colors hover:bg-muted/60 hover:text-pine"
           >
             Sign in
           </Link>
-          <Button asChild size="sm" className="h-9 rounded-lg px-4">
+          <Button
+            asChild
+            size="sm"
+            className="btn-sheen h-9 rounded-lg bg-primary px-4 text-primary-foreground shadow-glow transition-transform duration-300 ease-expo hover:-translate-y-0.5"
+          >
             <Link href="/auth/sign-up">
               Start free <ArrowUpRight className="size-3.5" />
             </Link>
@@ -325,22 +329,29 @@ const footerColumns = [
 
 export function MarketingFooter() {
   return (
-    <footer className="border-t border-border bg-background">
-      <div className="container-x py-14 lg:py-16">
+    <footer className="brand-sweep relative overflow-hidden">
+      <div className="brand-grain pointer-events-none absolute inset-0 opacity-[0.05]" aria-hidden="true" />
+      <div className="container-x relative py-14 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[1.3fr_repeat(5,minmax(0,1fr))]">
           <div className="max-w-xs">
-            <BrandWordmark href="/" size="md" />
-            <p className="mt-4 text-[13px] leading-6 text-muted-foreground">
+            <BrandWordmark href="/" size="md" inverse />
+            <p className="mt-4 text-[13px] leading-6 text-brand-ink-muted">
               A quieter way to run rentals. Rent, tenants, leases and reporting in one calm workspace, built for landlords and agencies across Africa.
             </p>
-            <div className="mt-5 space-y-1.5 text-[12.5px] text-muted-foreground">
+            <div className="mt-5 space-y-1.5 text-[12.5px] text-brand-ink-muted">
               <p>
-                <a href={`mailto:${BRAND.supportEmail}`} className="transition-colors hover:text-foreground">
+                <a
+                  href={`mailto:${BRAND.supportEmail}`}
+                  className="transition-colors hover:text-brand-lime"
+                >
                   {BRAND.supportEmail}
                 </a>
               </p>
               <p>
-                <a href={BRAND.supportPhoneHref} className="transition-colors hover:text-foreground">
+                <a
+                  href={BRAND.supportPhoneHref}
+                  className="transition-colors hover:text-brand-lime"
+                >
                   {BRAND.supportPhone}
                 </a>
               </p>
@@ -350,13 +361,15 @@ export function MarketingFooter() {
 
           {footerColumns.map((column) => (
             <div key={column.heading}>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">{column.heading}</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-ink-foreground">
+                {column.heading}
+              </p>
               <ul className="mt-3.5 space-y-2.5">
                 {column.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-[12.5px] text-muted-foreground transition-colors hover:text-foreground"
+                      className="text-[12.5px] text-brand-ink-muted transition-colors hover:text-brand-lime"
                     >
                       {link.label}
                     </Link>
@@ -367,12 +380,12 @@ export function MarketingFooter() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-[11.5px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-brand-ink-foreground/12 pt-6 text-[11.5px] text-brand-ink-muted sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Bower. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <Link href="/legal/cookies" className="transition-colors hover:text-foreground">Cookies</Link>
-            <Link href="/legal/acceptable-use" className="transition-colors hover:text-foreground">Acceptable use</Link>
-            <Link href="/rss.xml" className="transition-colors hover:text-foreground">RSS</Link>
+            <Link href="/legal/cookies" className="transition-colors hover:text-brand-lime">Cookies</Link>
+            <Link href="/legal/acceptable-use" className="transition-colors hover:text-brand-lime">Acceptable use</Link>
+            <Link href="/rss.xml" className="transition-colors hover:text-brand-lime">RSS</Link>
           </div>
         </div>
       </div>
