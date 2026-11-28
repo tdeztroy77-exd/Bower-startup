@@ -1,8 +1,8 @@
 "use client"
 
-import { useActionState, useEffect, useMemo } from "react"
+import { useActionState } from "react"
 import { useFormStatus } from "react-dom"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -29,28 +29,15 @@ function SubmitButton() {
 
 export default function LoginForm() {
   const [state, formAction] = useActionState(signIn, null)
-  const router = useRouter()
   const searchParams = useSearchParams()
   const justReset = searchParams.get("reset") === "success"
   const justVerified = searchParams.get("verified") === "true"
-
-  const prefillError = useMemo(() => {
-    const e = searchParams.get("error")
-    if (!e) return null
-    if (e === "verification_failed") return "Email verification failed. Please try signing up again."
-    return decodeURIComponent(e)
-  }, [searchParams])
-
-  // Single redirect on success — middleware already handles session refresh,
-  // so we just send the user to the dashboard (or the page they came from).
-  useEffect(() => {
-    if (state?.success) {
-      const raw = new URLSearchParams(window.location.search).get("next") || ""
-      // Only accept same-origin relative paths.
-      const next = raw.startsWith("/") && !raw.startsWith("//") ? raw : "/dashboard"
-      router.push(next)
-    }
-  }, [state?.success, router])
+  const prefillError =
+    searchParams.get("error") === "verification_failed"
+      ? "Email confirmation couldn’t be completed. Please request a new link or try again."
+      : searchParams.has("error")
+        ? "We couldn’t complete that request. Please try again."
+        : null
 
   return (
     <div>
@@ -58,6 +45,7 @@ export default function LoginForm() {
       <p className="mt-1.5 text-[13px] text-muted-foreground">Back to your portfolio.</p>
 
       <form action={formAction} className="mt-7 space-y-4">
+        <input type="hidden" name="next" value={searchParams.get("next") || "/dashboard"} />
         {justReset && (
           <div className="flex items-start gap-2 rounded-xl border border-success/20 bg-success/[0.07] px-3.5 py-2.5 text-[12.5px] text-success">
             <CheckCircle2 className="mt-0.5 size-4 shrink-0" />
@@ -71,7 +59,7 @@ export default function LoginForm() {
           </div>
         )}
         {(state?.error || prefillError) && (
-          <div className="rounded-xl border border-destructive/20 bg-destructive/[0.06] px-3.5 py-2.5 text-[12.5px] text-destructive">
+          <div role="alert" className="rounded-xl border border-destructive/20 bg-destructive/[0.06] px-3.5 py-2.5 text-[12.5px] text-destructive">
             {state?.error || prefillError}
           </div>
         )}

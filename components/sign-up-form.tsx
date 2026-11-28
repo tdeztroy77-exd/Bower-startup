@@ -40,20 +40,23 @@ export default function SignUpForm() {
 
       <form action={formAction} className="mt-7 space-y-4">
         {state?.error && (
-          <div className="rounded-xl border border-destructive/20 bg-destructive/[0.06] px-3.5 py-2.5 text-[12.5px] text-destructive">
+          <div role="alert" className="rounded-xl border border-destructive/20 bg-destructive/[0.06] px-3.5 py-2.5 text-[12.5px] text-destructive">
             {state.error}
           </div>
         )}
 
         {state?.success && (
-          <div className="rounded-xl border border-success/20 bg-success/[0.07] px-3.5 py-2.5 text-[12.5px] text-success">
-            {state.message || "Account created. Check your email to verify it before signing in."}
+          <div role="status" className="rounded-xl border border-success/20 bg-success/[0.07] px-3.5 py-2.5 text-[12.5px] text-success">
+            <p>{state.message || "Check your inbox for a confirmation link."}</p>
+            <Link href="/auth/login" className="mt-2 inline-flex font-semibold underline underline-offset-2">
+              Go to sign in
+            </Link>
           </div>
         )}
 
         <div className="space-y-1.5">
           <Label htmlFor="email" className="text-[12.5px]">Work email</Label>
-          <Input id="email" name="email" type="email" placeholder="you@example.com" required autoComplete="email" className="h-10 rounded-xl" />
+          <Input id="email" name="email" type="email" placeholder="you@example.com" required autoComplete="email" autoCapitalize="none" className="h-10 rounded-xl" />
         </div>
         <div className="space-y-1.5">
           <Label htmlFor="password" className="text-[12.5px]">Password</Label>
